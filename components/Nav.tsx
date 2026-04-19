@@ -3,6 +3,14 @@
 import { useState, useEffect } from 'react'
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 
+const links = [
+  { label: 'Inicio', href: '#top' },
+  { label: 'Coaching', href: '#services' },
+  { label: 'Cursos', href: '#cursos' },
+  { label: 'Podcast', href: '#podcast' },
+  { label: 'Blog', href: '#blog' },
+]
+
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
@@ -18,7 +26,16 @@ export default function Nav() {
     if (!isMobile) setOpen(false)
   }, [isMobile])
 
-  const links = ['Inicio', 'Coaching', 'Cursos', 'Podcast', 'Blog', 'Más']
+  const handleNav = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault()
+    if (href === '#top') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } else {
+      const el = document.querySelector(href)
+      if (el) el.scrollIntoView({ behavior: 'smooth' })
+    }
+    setOpen(false)
+  }
 
   const navStyle: React.CSSProperties = {
     position: 'sticky',
@@ -37,7 +54,7 @@ export default function Nav() {
         padding: isMobile ? '16px 20px' : isTablet ? '16px 32px' : '18px 48px',
       }}>
         {/* Logo */}
-        <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 10, zIndex: 60 }}>
+        <a href="#top" onClick={e => handleNav(e, '#top')} style={{ display: 'flex', alignItems: 'center', gap: 10, zIndex: 60 }}>
           <div style={{
             width: 34, height: 34, borderRadius: 999,
             background: 'var(--ink)', color: 'var(--bg)',
@@ -54,7 +71,14 @@ export default function Nav() {
         {!isMobile && !isTablet && (
           <div style={{ display: 'flex', alignItems: 'center', gap: 2 }}>
             {links.map(l => (
-              <a key={l} href={`#${l.toLowerCase()}`} style={{ padding: '8px 12px', fontSize: 14, color: 'var(--ink-2)', borderRadius: 999 }}>{l}</a>
+              <a
+                key={l.label}
+                href={l.href}
+                onClick={e => handleNav(e, l.href)}
+                style={{ padding: '8px 12px', fontSize: 14, color: 'var(--ink-2)', borderRadius: 999 }}
+              >
+                {l.label}
+              </a>
             ))}
           </div>
         )}
@@ -63,7 +87,7 @@ export default function Nav() {
         {!isMobile && !isTablet && (
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <a href="#contact" style={{ fontSize: 14, color: 'var(--ink-2)', padding: '8px 12px' }}>Contactar</a>
-            <a href="#book" style={{
+            <a href="#services" onClick={e => handleNav(e, '#services')} style={{
               fontSize: 14, fontWeight: 500,
               background: 'var(--ink)', color: 'var(--bg)',
               padding: '10px 18px', borderRadius: 999,
@@ -79,7 +103,7 @@ export default function Nav() {
 
         {/* Tablet CTA */}
         {isTablet && !isMobile && (
-          <a href="#book" style={{
+          <a href="#services" onClick={e => handleNav(e, '#services')} style={{
             fontSize: 13, fontWeight: 500,
             background: 'var(--ink)', color: 'var(--bg)',
             padding: '9px 16px', borderRadius: 999,
@@ -102,12 +126,17 @@ export default function Nav() {
         <div style={{ background: 'var(--bg)', borderTop: '1px solid var(--line)', padding: '20px 20px 28px' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 4, marginBottom: 24 }}>
             {links.map(l => (
-              <a key={l} href={`#${l.toLowerCase()}`} onClick={() => setOpen(false)}
+              <a
+                key={l.label}
+                href={l.href}
+                onClick={e => handleNav(e, l.href)}
                 style={{ padding: '12px 4px', fontSize: 18, fontWeight: 500, borderBottom: '1px solid var(--line)' }}
-              >{l}</a>
+              >
+                {l.label}
+              </a>
             ))}
           </div>
-          <a href="#book" style={{
+          <a href="#services" onClick={e => handleNav(e, '#services')} style={{
             display: 'block', textAlign: 'center',
             background: 'var(--ink)', color: 'var(--bg)',
             padding: '14px 20px', borderRadius: 999, fontSize: 15, fontWeight: 500,
