@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Lucas Patanó — Product Coach',
+  title: 'Lucas Patanó - Product Coach',
   description: 'Producto, growth y liderazgo que genera impacto real en LATAM.',
 }
 
