@@ -3,12 +3,29 @@
 import Image from 'next/image'
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 
+const brands = ['BICE', 'Falabella', 'Global66', 'Ualá', 'Mercado Pago', 'Rappi', 'Platzi', 'Globant']
+
 export default function Hero() {
   const { isMobile, isTablet } = useBreakpoint()
   const pad = isMobile ? '28px 0 56px' : isTablet ? '40px 0 72px' : '40px 0 80px'
 
   return (
     <section style={{ padding: pad }}>
+      <style>{`
+        @keyframes marquee {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .marquee-track {
+          display: flex;
+          width: max-content;
+          animation: marquee 22s linear infinite;
+        }
+        .marquee-track:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
+
       <div className="wrap">
         {/* Status row */}
         <div style={{
@@ -78,22 +95,54 @@ export default function Hero() {
                   priority
                 />
               </div>
-
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12 }} className="mono">
+                <span style={{ color: 'var(--muted)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Fig. 01 — portrait</span>
+                <span style={{ color: 'var(--muted)' }}>↓ scroll</span>
+              </div>
             </div>
           )}
         </div>
 
-        {/* Brands strip */}
+        {/* Brands marquee */}
         <div style={{
-          marginTop: isMobile ? 48 : 80, padding: '20px 0',
-          borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)',
-          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-          gap: isMobile ? 16 : 32, flexWrap: 'wrap', overflowX: isMobile ? 'auto' : 'visible',
+          marginTop: isMobile ? 48 : 80,
+          borderTop: '1px solid var(--line)',
+          borderBottom: '1px solid var(--line)',
+          overflow: 'hidden',
+          display: 'flex',
+          alignItems: 'center',
+          gap: 0,
         }}>
-          <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '0.12em', textTransform: 'uppercase', flexShrink: 0 }}>Experiencia con</div>
-          {['BICE', 'Falabella', 'Global66', 'Ualá', 'Y muchos más'].slice(0, isMobile ? 3 : 6).map(c => (
-            <div key={c} className="serif" style={{ fontSize: isMobile ? 18 : 22, color: 'var(--ink-2)', opacity: 0.7, flexShrink: 0 }}>{c}</div>
-          ))}
+          {/* Label fijo */}
+          <div className="mono" style={{
+            fontSize: 11, color: 'var(--muted)', letterSpacing: '0.12em', textTransform: 'uppercase',
+            flexShrink: 0, padding: '20px 32px 20px 0',
+            borderRight: '1px solid var(--line)', marginRight: 40,
+            whiteSpace: 'nowrap',
+          }}>
+            Experiencia con
+          </div>
+
+          {/* Track con loop: duplicamos la lista para el efecto infinito */}
+          <div style={{ overflow: 'hidden', flex: 1 }}>
+            <div className="marquee-track">
+              {[...brands, ...brands].map((c, i) => (
+                <span
+                  key={i}
+                  className="serif"
+                  style={{
+                    fontSize: isMobile ? 18 : 22,
+                    color: 'var(--ink-2)',
+                    opacity: 0.7,
+                    whiteSpace: 'nowrap',
+                    paddingRight: isMobile ? 40 : 64,
+                  }}
+                >
+                  {c}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
