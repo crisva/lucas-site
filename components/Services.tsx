@@ -4,14 +4,19 @@ import { useState } from 'react'
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 
 interface ServiceCardProps {
+  idx: number
   tag: string
   t: string
   d: string
   meta: string
-  idx: number
+  cta: string
+  ctaHref: string
+  ctaSecondary?: string
+  ctaSecondaryHref?: string
+  muted?: boolean
 }
 
-function ServiceCard({ tag, t, d, meta, idx }: ServiceCardProps) {
+function ServiceCard({ idx, tag, t, d, meta, cta, ctaHref, ctaSecondary, ctaSecondaryHref, muted }: ServiceCardProps) {
   const [hover, setHover] = useState(false)
   const { isMobile } = useBreakpoint()
 
@@ -20,81 +25,171 @@ function ServiceCard({ tag, t, d, meta, idx }: ServiceCardProps) {
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{
-        padding: isMobile ? 20 : 28,
-        minHeight: isMobile ? 'auto' : 340,
+        padding: isMobile ? 24 : 32,
         borderRight: '1px solid var(--line)',
         borderBottom: '1px solid var(--line)',
         background: hover ? 'var(--surface)' : 'transparent',
         display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
+        minHeight: isMobile ? 'auto' : 380,
         transition: 'background 0.2s',
+        opacity: muted ? 0.65 : 1,
       }}
     >
       <div>
-        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 36 }}>
+        {/* Header */}
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 28 }}>
           <span className="mono" style={{ fontSize: 10, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--muted)' }}>
             {String(idx).padStart(2, '0')} · {tag}
           </span>
           <span style={{
-            width: 26, height: 26, borderRadius: 999,
+            width: 26, height: 26, borderRadius: 999, flexShrink: 0,
             background: hover ? 'var(--accent)' : 'transparent',
             border: hover ? 'none' : '1px solid var(--line)',
             color: hover ? 'var(--bg)' : 'var(--muted)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            transition: 'all 0.2s', flexShrink: 0,
+            transition: 'all 0.2s',
           }}>
             <svg width="9" height="9" viewBox="0 0 12 12" fill="none">
               <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
           </span>
         </div>
-        <h3 className="serif" style={{ fontSize: isMobile ? 26 : 30, lineHeight: 1, marginBottom: 12 }}>{t}</h3>
-        <p style={{ fontSize: 14, color: 'var(--ink-2)', lineHeight: 1.5 }}>{d}</p>
+
+        {/* Título */}
+        <h3 className="serif" style={{ fontSize: isMobile ? 24 : 28, lineHeight: 1.05, marginBottom: 12 }}>{t}</h3>
+
+        {/* Descripción */}
+        <p style={{ fontSize: 13, color: 'var(--ink-2)', lineHeight: 1.6 }}>{d}</p>
       </div>
-      <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '0.08em', textTransform: 'uppercase', marginTop: 32 }}>{meta}</div>
+
+      {/* Footer */}
+      <div style={{ marginTop: 28 }}>
+        <div style={{ height: 1, background: 'var(--line)', marginBottom: 20 }} />
+        <div className="mono" style={{ fontSize: 10, color: 'var(--muted)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 16 }}>
+          {meta}
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+          <a href={ctaHref} style={{
+            fontSize: 13, fontWeight: 500,
+            background: muted ? 'transparent' : 'var(--ink)', color: muted ? 'var(--ink)' : 'var(--bg)',
+            padding: '10px 16px', borderRadius: 999,
+            display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 6,
+            border: muted ? '1px solid var(--line)' : 'none',
+            textAlign: 'center',
+          }}>
+            {cta}
+          </a>
+          {ctaSecondary && (
+            <a href={ctaSecondaryHref} style={{
+              fontSize: 12, color: 'var(--muted)',
+              display: 'inline-flex', alignItems: 'center', gap: 4,
+              borderBottom: '1px solid var(--line)', paddingBottom: 1, alignSelf: 'flex-start',
+            }}>
+              {ctaSecondary} →
+            </a>
+          )}
+        </div>
+      </div>
     </div>
   )
 }
 
+const items = [
+  {
+    tag: 'Programa',
+    t: 'Product Coaching',
+    d: 'Para los que quieren un cambio de fondo. Un proceso de acompañamiento de mediano y largo plazo donde trabajamos juntos en estrategia, liderazgo y desarrollo profesional. No es mentoría suelta: tiene objetivos, métricas y sesiones regulares. Para CEOs, founders y líderes de producto que sienten que algo importante está trancado.',
+    meta: 'Sesión introductoria gratuita de 15 min · Packs desde USD 450',
+    cta: 'Reservar sesión gratuita',
+    ctaHref: '#book-coaching',
+  },
+  {
+    tag: 'Core',
+    t: 'Mentorías 1:1',
+    d: 'Para decisiones que no pueden esperar. Sesiones de hasta 1 hora para destrabar algo concreto: un cambio de trabajo, una negociación, una decisión de producto o de equipo. Sin rodeos, con foco en lo que importa.',
+    meta: 'Desde USD 180 · Sesión individual · Reserva con pago online',
+    cta: 'Reservar mentoría',
+    ctaHref: '#book-mentoria',
+  },
+  {
+    tag: 'Formación',
+    t: 'Cursos',
+    d: 'Cohortes sincrónicas para quienes trabajan en producto y quieren crecer, o quieren entrar al mundo del product management. Cuatro cursos disponibles: Growth para PMs, UX para PMs, Liderazgo para PMs y Fintech para PMs. Dictados en asociación con Product Hub, academia de producto referente en LATAM.',
+    meta: 'Ver próximas cohortes en Product Hub',
+    cta: 'Ver en Product Hub',
+    ctaHref: 'https://producthub.la',
+  },
+  {
+    tag: 'Corporativo',
+    t: 'Speaker',
+    d: 'Charlas de 45 minutos a 1 hora sobre producto, growth y liderazgo — desde experiencia real, no teoría. Para eventos corporativos, conferencias y jornadas de equipo.',
+    meta: 'Sin precio publicado · Consultar disponibilidad',
+    cta: 'Consultar disponibilidad',
+    ctaHref: 'mailto:lucaspatano@gmail.com',
+  },
+  {
+    tag: 'Otros',
+    t: '¿Algo más en mente?',
+    d: 'Dependiendo del proyecto y el contexto, puedo ayudarte de otras formas. Escribime y lo conversamos.',
+    meta: 'Contacto directo',
+    cta: 'Escribime',
+    ctaHref: 'mailto:lucaspatano@gmail.com',
+    muted: true,
+  },
+]
+
 export default function Services() {
   const { isMobile, isTablet } = useBreakpoint()
-
-  const items = [
-    { tag: 'Core',        t: 'Mentorías 1:1',       d: 'Sesiones directas para decisiones puntuales, validación de estrategias y desbloqueos de carrera. Formato 60–90 min.',   meta: 'desde USD 180' },
-    { tag: 'Programa',    t: 'Product coaching',     d: 'Procesos de acompañamiento profundo de 3 a 6 meses, con sesión introductoria gratuita y métricas claras.',               meta: '3–6 meses' },
-    { tag: 'Formación',   t: 'Cursos síncronos',     d: 'Formación en growth, UX y fintech a través de Product Hub. Cohortes pequeñas, foco en aplicación real.',                 meta: 'Cohortes trimestrales' },
-    { tag: 'Corporativo', t: 'Speaker corporativo',  d: 'Charlas sobre producto, growth y liderazgo para tu empresa. Keynote, workshop o jornada intensiva.',                      meta: 'ES · EN' },
-  ]
 
   return (
     <section id="services" style={{ padding: isMobile ? '64px 0' : '120px 0', background: 'var(--bg-2)' }}>
       <div className="wrap">
+
+        {/* Header */}
         <div style={{
-          display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
-          gap: isMobile ? 24 : 80, alignItems: 'end', marginBottom: isMobile ? 40 : 72,
+          display: 'grid',
+          gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+          gap: isMobile ? 24 : 80,
+          alignItems: 'end',
+          marginBottom: isMobile ? 40 : 72,
         }}>
           <div>
             <div className="eyebrow" style={{ marginBottom: 16 }}>— 003 · Servicios</div>
             <h2 className="serif" style={{ fontSize: isMobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(40px, 4.5vw, 68px)', lineHeight: 1 }}>
-              Acompañamiento<br />personalizado para tu<br /><em style={{ color: 'var(--accent)' }}>desarrollo profesional</em>.
+              Hay más de una forma de{' '}
+              <em style={{ color: 'var(--accent)' }}>trabajar juntos.</em>
             </h2>
           </div>
           <div>
-            <p style={{ fontSize: isMobile ? 15 : 17, color: 'var(--ink-2)', marginBottom: 16 }}>
-              Cada servicio está diseñado para resolver desafíos específicos. Desde mentorías puntuales hasta procesos de coaching profundos.
+            <p style={{ fontSize: isMobile ? 15 : 17, color: 'var(--ink-2)', lineHeight: 1.6 }}>
+              Según dónde estés parado, hay un formato que tiene más sentido. Desde una sesión puntual para destrabar algo concreto hasta un proceso de mediano y largo plazo para cambiar cómo liderás.
             </p>
-            <a style={{ fontSize: 14, color: 'var(--ink)', display: 'inline-flex', alignItems: 'center', gap: 6, borderBottom: '1px solid var(--ink)', paddingBottom: 2 }}>
-              Ver todos los servicios <span>→</span>
-            </a>
           </div>
         </div>
 
+        {/* Grid de cards — 4 principales + 1 muted */}
         <div style={{
           display: 'grid',
           gridTemplateColumns: isMobile ? '1fr' : isTablet ? '1fr 1fr' : 'repeat(4, 1fr)',
-          gap: 0, borderTop: '1px solid var(--line)', borderLeft: '1px solid var(--line)',
+          gap: 0,
+          borderTop: '1px solid var(--line)',
+          borderLeft: '1px solid var(--line)',
+          marginBottom: 0,
         }}>
-          {items.map((it, i) => <ServiceCard key={i} {...it} idx={i + 1} />)}
+          {items.slice(0, 4).map((it, i) => (
+            <ServiceCard key={i} {...it} idx={i + 1} />
+          ))}
         </div>
+
+        {/* Card "Otros" — ancho completo, baja visibilidad */}
+        <div style={{
+          borderLeft: '1px solid var(--line)',
+          borderRight: '1px solid var(--line)',
+          borderBottom: '1px solid var(--line)',
+        }}>
+          <ServiceCard {...items[4]} idx={5} />
+        </div>
+
       </div>
     </section>
   )

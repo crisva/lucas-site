@@ -5,6 +5,8 @@ import { useBreakpoint } from '@/hooks/useBreakpoint'
 
 const brands = ['BICE', 'Falabella', 'Global66', 'Ualá', 'Mercado Pago', 'Rappi', 'Platzi', 'Globant']
 
+const chips = ['+15 años en producto', 'CEOs · Founders · CPOs', 'Fintech y más industrias', 'LATAM']
+
 export default function Hero() {
   const { isMobile, isTablet } = useBreakpoint()
   const pad = isMobile ? '28px 0 56px' : isTablet ? '40px 0 72px' : '40px 0 80px'
@@ -51,27 +53,45 @@ export default function Hero() {
         }}>
           <div>
             <div className="eyebrow" style={{ marginBottom: 20 }}>— 001 · Mentoría para product leaders</div>
+
+            {/* Título */}
             <h1 className="serif" style={{
-              fontSize: isMobile ? 'clamp(48px, 13vw, 72px)' : 'clamp(56px, 7vw, 104px)',
-              lineHeight: 0.98, marginBottom: 24, letterSpacing: '-0.03em',
+              fontSize: isMobile ? 'clamp(38px, 10vw, 60px)' : 'clamp(44px, 5.5vw, 84px)',
+              lineHeight: 1.02, marginBottom: 24, letterSpacing: '-0.03em',
             }}>
-              Producto, growth<br />
-              y liderazgo que<br />
-              <em style={{ color: 'var(--accent)' }}>genera impacto</em><br />
-              real.
+              Cuando tu producto, tu carrera o tu equipo está estancado, es el momento de{' '}
+              <em style={{ color: 'var(--accent)' }}>llamarme.</em>
             </h1>
-            <p style={{ fontSize: isMobile ? 16 : 18, color: 'var(--ink-2)', maxWidth: 520, marginBottom: 32, lineHeight: 1.5 }}>
-              Más de diez años trabajando con startups y corporaciones en LATAM.
-              Hoy acompaño profesionales que buscan escalar su carrera, liderar equipos
-              de producto y tomar decisiones que importan.
+
+            {/* Descripción */}
+            <p style={{ fontSize: isMobile ? 16 : 18, color: 'var(--ink-2)', maxWidth: 540, marginBottom: 24, lineHeight: 1.6 }}>
+              Soy Lucas Patanó. Más de 15 años construyendo productos en LATAM, en fintech, startups y corporaciones. Hoy acompaño a CEOs, founders y líderes de producto a resolver lo que los traba: estrategia, equipos, decisiones y desarrollo profesional.
             </p>
+
+            {/* Chips */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 32 }}>
+              {chips.map(chip => (
+                <span key={chip} className="mono" style={{
+                  fontSize: 10, letterSpacing: '0.08em', textTransform: 'uppercase',
+                  padding: '6px 14px', borderRadius: 999,
+                  border: '1px solid var(--line)',
+                  color: 'var(--muted)',
+                  background: 'var(--bg-2)',
+                  whiteSpace: 'nowrap',
+                }}>
+                  {chip}
+                </span>
+              ))}
+            </div>
+
+            {/* CTAs */}
             <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
               <a href="#book" style={{
                 background: 'var(--ink)', color: 'var(--bg)',
                 padding: isMobile ? '14px 22px' : '16px 28px', borderRadius: 999, fontSize: 15, fontWeight: 500,
                 display: 'inline-flex', alignItems: 'center', gap: 10,
               }}>
-                Reservar mentoría
+                Quiero trabajar con Lucas
                 <svg width="13" height="13" viewBox="0 0 12 12" fill="none">
                   <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
@@ -79,7 +99,7 @@ export default function Hero() {
               <a href="#services" style={{
                 padding: isMobile ? '14px 18px' : '16px 24px', borderRadius: 999, fontSize: 15,
                 border: '1px solid var(--line)', color: 'var(--ink)',
-              }}>Conocer servicios</a>
+              }}>Ver cómo puedo ayudarte</a>
             </div>
           </div>
 
@@ -111,9 +131,7 @@ export default function Hero() {
           overflow: 'hidden',
           display: 'flex',
           alignItems: 'center',
-          gap: 0,
         }}>
-          {/* Label fijo */}
           <div className="mono" style={{
             fontSize: 11, color: 'var(--muted)', letterSpacing: '0.12em', textTransform: 'uppercase',
             flexShrink: 0, padding: '20px 32px 20px 0',
@@ -122,22 +140,15 @@ export default function Hero() {
           }}>
             Experiencia con
           </div>
-
-          {/* Track con loop: duplicamos la lista para el efecto infinito */}
           <div style={{ overflow: 'hidden', flex: 1 }}>
             <div className="marquee-track">
               {[...brands, ...brands].map((c, i) => (
-                <span
-                  key={i}
-                  className="serif"
-                  style={{
-                    fontSize: isMobile ? 18 : 22,
-                    color: 'var(--ink-2)',
-                    opacity: 0.7,
-                    whiteSpace: 'nowrap',
-                    paddingRight: isMobile ? 40 : 64,
-                  }}
-                >
+                <span key={i} className="serif" style={{
+                  fontSize: isMobile ? 18 : 22,
+                  color: 'var(--ink-2)', opacity: 0.7,
+                  whiteSpace: 'nowrap',
+                  paddingRight: isMobile ? 40 : 64,
+                }}>
                   {c}
                 </span>
               ))}
