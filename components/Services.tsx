@@ -98,7 +98,7 @@ const items = [
   {
     tag: 'Programa',
     t: 'Product Coaching',
-    d: 'Para los que quieren un cambio de fondo. Un proceso de acompañamiento de mediano y largo plazo donde trabajamos juntos en estrategia, liderazgo y desarrollo profesional. No es mentoría suelta: tiene objetivos, métricas y sesiones regulares. Para CEOs, founders y líderes de producto que sienten que algo importante está trancado.',
+    d: 'Para líderes que quieren un cambio de fondo. Trabajamos juntos en estrategia, liderazgo y desarrollo profesional — con objetivos claros y resultados medibles.',
     meta: 'Sesión introductoria gratuita de 15 min · Packs desde USD 450',
     cta: 'Reservar sesión gratuita',
     ctaHref: '#book-coaching',
@@ -106,7 +106,7 @@ const items = [
   {
     tag: 'Core',
     t: 'Mentorías 1:1',
-    d: 'Para decisiones que no pueden esperar. Sesiones de hasta 1 hora para destrabar algo concreto: un cambio de trabajo, una negociación, una decisión de producto o de equipo. Sin rodeos, con foco en lo que importa.',
+    d: 'Para decisiones que no pueden esperar. Una sesión de hasta 1 hora para destrabar algo concreto — sin rodeos, con foco en lo que importa.',
     meta: 'Desde USD 180 · Sesión individual · Reserva con pago online',
     cta: 'Reservar mentoría',
     ctaHref: '#book-mentoria',
@@ -114,7 +114,7 @@ const items = [
   {
     tag: 'Formación',
     t: 'Cursos',
-    d: 'Cohortes sincrónicas para quienes trabajan en producto y quieren crecer, o quieren entrar al mundo del product management. Cuatro cursos disponibles: Growth para PMs, UX para PMs, Liderazgo para PMs y Fintech para PMs. Dictados en asociación con Product Hub, academia de producto referente en LATAM.',
+    d: 'Cohortes sincrónicas para PMs que quieren crecer o quienes quieren entrar al mundo del producto. Growth, UX, Liderazgo y Fintech. En asociación con Product Hub.',
     meta: 'Ver próximas cohortes en Product Hub',
     cta: 'Ver en Product Hub',
     ctaHref: 'https://producthub.la',
@@ -122,7 +122,7 @@ const items = [
   {
     tag: 'Corporativo',
     t: 'Speaker',
-    d: 'Charlas de 45 minutos a 1 hora sobre producto, growth y liderazgo — desde experiencia real, no teoría. Para eventos corporativos, conferencias y jornadas de equipo.',
+    d: 'Charlas de 45 min a 1 hora sobre producto, growth y liderazgo. Desde experiencia real, no teoría. Para eventos corporativos y conferencias.',
     meta: 'Sin precio publicado · Consultar disponibilidad',
     cta: 'Consultar disponibilidad',
     ctaHref: 'mailto:lucaspatano@gmail.com',

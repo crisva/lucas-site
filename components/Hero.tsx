@@ -3,9 +3,7 @@
 import Image from 'next/image'
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 
-const brands = ['BICE', 'Falabella', 'Global66', 'Ualá', 'Mercado Pago', 'Rappi', 'Platzi', 'Globant']
-
-const chips = ['+15 años en producto', 'CEOs · Founders · CPOs', 'Fintech y más industrias', 'LATAM']
+const brands = ['GIRE Soluciones', 'Universidad de Buenos Aires', 'Fiserv', 'Ualá', 'The Valley University', 'Global66', 'Unlearni', 'Hackeando Productos', 'Falabella Financiero', 'Growth Rockstar', 'Product Hub', 'BICE']
 
 export default function Hero() {
   const { isMobile, isTablet } = useBreakpoint()
@@ -21,7 +19,7 @@ export default function Hero() {
         .marquee-track {
           display: flex;
           width: max-content;
-          animation: marquee 22s linear infinite;
+          animation: marquee 28s linear infinite;
         }
         .marquee-track:hover {
           animation-play-state: paused;
@@ -40,7 +38,7 @@ export default function Hero() {
             <span style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '0.12em', textTransform: 'uppercase' }}>Agenda abierta · Mayo 2026</span>
           </div>
           {!isMobile && (
-            <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '0.12em', textTransform: 'uppercase' }}>Buenos Aires · LATAM</div>
+            <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '0.12em', textTransform: 'uppercase' }}>Santiago de Chile · LATAM</div>
           )}
         </div>
 
@@ -52,9 +50,8 @@ export default function Hero() {
           alignItems: 'end',
         }}>
           <div>
-            <div className="eyebrow" style={{ marginBottom: 20 }}>— 001 · Mentoría para product leaders</div>
+            <div className="eyebrow" style={{ marginBottom: 20 }}>— 001 · Mentorías para dar ese siguiente paso en producto</div>
 
-            {/* Título */}
             <h1 className="serif" style={{
               fontSize: isMobile ? 'clamp(38px, 10vw, 60px)' : 'clamp(44px, 5.5vw, 84px)',
               lineHeight: 1.02, marginBottom: 24, letterSpacing: '-0.03em',
@@ -63,26 +60,9 @@ export default function Hero() {
               <em style={{ color: 'var(--accent)' }}>llamarme.</em>
             </h1>
 
-            {/* Descripción */}
-            <p style={{ fontSize: isMobile ? 16 : 18, color: 'var(--ink-2)', maxWidth: 540, marginBottom: 24, lineHeight: 1.6 }}>
-              Soy Lucas Patanó. Más de 15 años construyendo productos en LATAM, en fintech, startups y corporaciones. Hoy acompaño a CEOs, founders y líderes de producto a resolver lo que los traba: estrategia, equipos, decisiones y desarrollo profesional.
+            <p style={{ fontSize: isMobile ? 16 : 18, color: 'var(--ink-2)', maxWidth: 540, marginBottom: 32, lineHeight: 1.6 }}>
+              Hay un momento en que sabés que algo tiene que cambiar en tu carrera, en tu equipo o en el producto que estás construyendo. Ese momento es justo antes de dar el salto. Y es exactamente ahí donde trabajo.
             </p>
-
-            {/* Chips */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 32 }}>
-              {chips.map(chip => (
-                <span key={chip} className="mono" style={{
-                  fontSize: 10, letterSpacing: '0.08em', textTransform: 'uppercase',
-                  padding: '6px 14px', borderRadius: 999,
-                  border: '1px solid var(--line)',
-                  color: 'var(--muted)',
-                  background: 'var(--bg-2)',
-                  whiteSpace: 'nowrap',
-                }}>
-                  {chip}
-                </span>
-              ))}
-            </div>
 
             {/* CTAs */}
             <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
@@ -105,20 +85,14 @@ export default function Hero() {
 
           {/* Portrait — solo desktop */}
           {!isMobile && (
-            <div>
-              <div style={{ position: 'relative', aspectRatio: '4 / 5', borderRadius: 8, overflow: 'hidden', marginBottom: 16 }}>
-                <Image
-                  src="/lucas-patano.jpg"
-                  alt="Lucas Patanó — Product Coach"
-                  fill
-                  style={{ objectFit: 'cover', objectPosition: 'center top' }}
-                  priority
-                />
-              </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12 }} className="mono">
-                <span style={{ color: 'var(--muted)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Fig. 01 — portrait</span>
-                <span style={{ color: 'var(--muted)' }}>↓ scroll</span>
-              </div>
+            <div style={{ position: 'relative', aspectRatio: '4 / 5', borderRadius: 8, overflow: 'hidden' }}>
+              <Image
+                src="/lucas-patano.jpg"
+                alt="Lucas Patanó — Product Coach"
+                fill
+                style={{ objectFit: 'cover', objectPosition: 'center top' }}
+                priority
+              />
             </div>
           )}
         </div>
@@ -138,7 +112,7 @@ export default function Hero() {
             borderRight: '1px solid var(--line)', marginRight: 40,
             whiteSpace: 'nowrap',
           }}>
-            Experiencia con
+            Construí en
           </div>
           <div style={{ overflow: 'hidden', flex: 1 }}>
             <div className="marquee-track">

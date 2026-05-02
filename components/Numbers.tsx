@@ -3,10 +3,10 @@
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 
 const stats = [
-  { v: '10k+', l: 'Seguidores en LinkedIn' },
-  { v: '100+', l: 'Episodios de podcast' },
-  { v: '50+',  l: 'Mentorías realizadas' },
-  { v: '40+',  l: 'Charlas y apariciones' },
+  { v: '+15 años', l: 'Experiencia en producto y negocio digital' },
+  { v: '+10.000', l: 'Seguidores en Linkedin' },
+  { v: '+50', l: 'Mentorías en LATAM' },
+  { v: '+40', l: 'Charlas, entrevistas y apariciones' },
 ]
 
 export default function Numbers() {
@@ -22,7 +22,7 @@ export default function Numbers() {
           <div>
             <div className="eyebrow" style={{ marginBottom: 16 }}>— 006 · Números</div>
             <h2 className="serif" style={{ fontSize: isMobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(40px, 4.5vw, 68px)', lineHeight: 1 }}>
-              Impacto medible<br />en la región.
+              15 años.<br />En números.
             </h2>
           </div>
           <div style={{ alignSelf: 'end' }}>
