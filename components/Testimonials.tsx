@@ -193,7 +193,7 @@ export default function Testimonials() {
                 <div style={{ height: 1, background: 'rgba(255,255,255,0.08)', marginBottom: 20 }} />
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 14 }}>
                   <div style={{ width: 44, height: 44, borderRadius: 999, overflow: 'hidden', flexShrink: 0, position: 'relative' }}>
-                    <Image src={it.photo} alt={it.n} fill style={{ objectFit: 'cover', objectPosition: 'center top' }} />
+                    <Image src={it.photo} alt={it.n} fill style={{ objectFit: 'cover', objectPosition: 'center top', filter: 'grayscale(100%)' }} />
                   </div>
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--bg)' }}>{it.n}</div>
