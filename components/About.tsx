@@ -6,7 +6,7 @@ import { useBreakpoint } from '@/hooks/useBreakpoint'
 const bio = [
   `Soy Lucas Patanó. Más de 15 años en producto y growth en startups, fintechs y corporaciones de LATAM — con equipos que escalaron de cero a millones de usuarios.`,
   `Fui CPO de Global66, donde construí el área de producto de 4 a más de 30 personas, lideré el desarrollo de la primera billetera multimoneda de LATAM y los envíos de dinero internacional instantáneos, y contribuí a cerrar una Serie A de USD 12M. También fui parte del equipo que diseñó las bases de UalaBis en Ualá.`,
-  `Hoy soy Gerente de Innovación en BICECORP, construyendo nuevos negocios digitales dentro de uno de los holdings financieros más grandes de Chile.`,
+  `Hoy soy Gerente de Innovación en BICE, construyendo nuevos negocios digitales dentro de uno de los holdings financieros más grandes de Chile.`,
   `Acompaño a CEOs, founders y líderes de producto a resolver lo que más los traba — estrategia, equipos o decisiones de carrera. Mi especialización es fintech, pero trabajo con múltiples industrias. Soy coach ontológico certificado: no solo trabajo el qué hacer, también el cómo ser.`,
 ]
 
