@@ -87,8 +87,8 @@ export default function Hero() {
           {!isMobile && (
             <div style={{ position: 'relative', aspectRatio: '4 / 5', borderRadius: 8, overflow: 'hidden' }}>
               <Image
-                src="/lucas-sobre-mi.jpg"
-                alt="Lucas Patanó dando una charla"
+                src="/lucas-hero.png"
+                alt="Lucas Patanó — Product Coach"
                 fill
                 style={{ objectFit: 'cover', objectPosition: 'center top' }}
                 priority
