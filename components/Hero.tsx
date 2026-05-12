@@ -27,21 +27,6 @@ export default function Hero() {
       `}</style>
 
       <div className="wrap">
-        {/* Status row */}
-        <div style={{
-          display: 'flex',
-          justifyContent: isMobile ? 'flex-start' : 'space-between',
-          alignItems: 'center', marginBottom: isMobile ? 32 : 56, gap: 16, flexWrap: 'wrap',
-        }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }} className="mono">
-            <span style={{ width: 8, height: 8, borderRadius: 999, background: '#4CAF50', boxShadow: '0 0 0 4px rgba(76,175,80,0.15)', flexShrink: 0 }} />
-            <span style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '0.12em', textTransform: 'uppercase' }}>Agenda abierta · Mayo 2026</span>
-          </div>
-          {!isMobile && (
-            <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '0.12em', textTransform: 'uppercase' }}>Santiago de Chile · LATAM</div>
-          )}
-        </div>
-
         {/* Main grid */}
         <div style={{
           display: 'grid',
@@ -61,7 +46,7 @@ export default function Hero() {
             </h1>
 
             <p style={{ fontSize: isMobile ? 16 : 18, color: 'var(--ink-2)', maxWidth: 540, marginBottom: 32, lineHeight: 1.6 }}>
-              Hay un momento en que sabés que algo tiene que cambiar en tu carrera, en tu equipo o en el producto que estás construyendo. Ese momento es justo antes de dar el salto. Y es exactamente ahí donde trabajo.
+              Hay un momento en que sabes o sientes que algo tiene que cambiar. Ese momento es justo antes de dar el salto y es exactamente ahí donde trabajo.
             </p>
 
             {/* CTAs */}

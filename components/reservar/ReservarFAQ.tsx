@@ -6,27 +6,27 @@ import { useBreakpoint } from '@/hooks/useBreakpoint'
 const faqs = [
   {
     q: '¿Cuál es la diferencia entre la mentoría y el coaching?',
-    a: 'La mentoría 1:1 es una sesión puntual para resolver algo concreto — una decisión, una situación específica, un desbloqueo. El Product Coaching es un proceso de mediano o largo plazo con sesiones regulares, objetivos definidos y seguimiento. Si no sabés cuál necesitás, empezá por la sesión introductoria gratuita.',
+    a: 'La mentoría 1:1 es una sesión puntual para resolver algo concreto — una decisión, una situación específica, un desbloqueo. El Product Coaching es un proceso de mediano y largo plazo con sesiones regulares, objetivos definidos y seguimiento. Si no sabés cuál necesitás, empezá por la sesión introductoria gratuita.',
   },
   {
     q: '¿La sesión introductoria de coaching es realmente gratuita?',
-    a: 'Sí. Es una sesión de 15 minutos sin cargo y sin compromiso. El objetivo es que nos conozcamos, que cuentes tu situación y que veas si el proceso de coaching tiene sentido para vos.',
+    a: 'Sí, sin ningún compromiso. Son 15 minutos para conocernos, entender dónde estás y ver si tiene sentido arrancar juntos. No necesitás tarjeta ni datos de pago para agendarla.',
   },
   {
     q: '¿Cómo se realizan las sesiones?',
-    a: 'Todas las sesiones son por videollamada (Google Meet o Zoom). Al confirmar la reserva te llega un email con el link correspondiente.',
+    a: 'Todas las sesiones son por videollamada. Recibís el link de acceso al confirmar la reserva.',
   },
   {
     q: '¿En qué zona horaria están los horarios?',
-    a: 'Todos los horarios están en GMT-3 (Buenos Aires / Santiago de Chile). Si estás en otra zona horaria, convertí el horario antes de reservar.',
+    a: 'Los horarios están en GMT-3 (Santiago de Chile). Si estás en otro país, el calendario los adapta automáticamente a tu zona horaria local.',
   },
   {
     q: '¿Puedo reprogramar o cancelar una sesión?',
-    a: 'Sí, con al menos 24 horas de anticipación. Escribime directamente a lucaspatano@gmail.com o por WhatsApp para coordinar.',
+    a: 'Sí. Podés reprogramar hasta 24 horas antes de la sesión sin costo. Cancelaciones con menos de 24 horas de anticipación no tienen reembolso.',
   },
   {
     q: '¿En qué idioma son las sesiones?',
-    a: 'En español. Puedo hacer sesiones en inglés si es necesario, pero el foco está en la comunidad hispanohablante de LATAM.',
+    a: 'Las sesiones son en español.',
   },
 ]
 
@@ -85,7 +85,7 @@ export default function ReservarFAQ() {
                     transition: 'transform 0.2s',
                   }}>
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                      <path d="M5 1V9M1 5H9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                      <path d="M5 1V9M1 5H9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                     </svg>
                   </span>
                 </button>

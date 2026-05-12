@@ -7,7 +7,7 @@ const rows = [
     n: '01',
     e: 'Experiencia real',
     k: 'Producto',
-    t: 'Empecé desde abajo. Llegué hasta arriba. Y sé lo que pasa en cada escalón.',
+    t: 'Empecé desde abajo. Llegué hasta arriba. Sé lo que pasa en cada escalón.',
     d: 'Comencé como Analista de Producto y fui pasando por todos los roles — Product Owner, PM, CPO — en corporaciones y startups. No adapto teorías: traigo lo que aprendí tomando decisiones reales en cada etapa.',
   },
   {

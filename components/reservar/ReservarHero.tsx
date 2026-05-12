@@ -18,9 +18,9 @@ function getDiasDelMes(year: number, month: number) {
 }
 
 const audiencia = [
-  { t: 'CEOs & Founders', d: 'Estrategia de negocio y liderazgo.' },
-  { t: 'CPOs & Heads', d: 'Equipos, roadmap y decisiones de producto.' },
-  { t: 'Leads & Seniors', d: 'Crecimiento profesional y siguiente salto.' },
+  { t: 'Quiero escalar mi carrera', d: 'Decisiones, transiciones y siguiente nivel.' },
+  { t: 'Necesito mejorar mi liderazgo', d: 'Equipos, cultura y gestión.' },
+  { t: 'Tengo un desafío de producto o negocio', d: 'Estrategia, priorización y growth.' },
 ]
 
 const payMethods = [
@@ -66,6 +66,22 @@ export default function ReservarHero() {
   return (
     <section style={{ padding: isMobile ? '40px 0 64px' : '56px 0 96px' }}>
       <div className="wrap">
+
+        {/* Status row — mes y año actuales */}
+        <div style={{
+          display: 'flex',
+          justifyContent: isMobile ? 'flex-start' : 'space-between',
+          alignItems: 'center', marginBottom: isMobile ? 32 : 48, gap: 16, flexWrap: 'wrap',
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }} className="mono">
+            <span style={{ width: 8, height: 8, borderRadius: 999, background: '#4CAF50', boxShadow: '0 0 0 4px rgba(76,175,80,0.15)', flexShrink: 0 }} />
+            <span style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+              Agenda abierta · {MESES[new Date().getMonth()]} {new Date().getFullYear()}
+            </span>
+          </div>
+
+        </div>
+
         <div style={{
           display: 'grid',
           gridTemplateColumns: isMobile ? '1fr' : isTablet ? '1fr' : '1.1fr 0.9fr',
@@ -105,9 +121,9 @@ export default function ReservarHero() {
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 7 }}>
                 {[
                   'Preparación previa con contexto',
-                  'Sesión 1:1 por videollamada',
+                  'Sesión 1:1 por videollamada de hasta 1 hora',
                   'Resumen y próximos pasos post-sesión',
-                  'Horarios en GMT-3 (Buenos Aires / Santiago)',
+                  'Horarios en GMT-3 (Santiago de Chile)',
                 ].map((item, i) => (
                   <li key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', fontSize: 13, color: 'var(--ink-2)' }}>
                     <span style={{ color: 'var(--accent)', flexShrink: 0 }}>✓</span>{item}

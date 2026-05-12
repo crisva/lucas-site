@@ -3,9 +3,31 @@
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 
 const cols = [
-  { t: 'Servicios', l: ['Mentorías', 'Coaching', 'Cursos', 'Speaker', 'Consultoría'] },
-  { t: 'Contenido', l: ['Blog', 'Podcast', 'Apariciones', 'Recursos', 'Testimonios'] },
-  { t: 'Sígueme',   l: ['LinkedIn', 'X', 'YouTube', 'Instagram', 'Podcast'] },
+  {
+    t: 'Servicios', l: [
+      { label: 'Mentorías', href: '#' },
+      { label: 'Coaching', href: '#' },
+      { label: 'Cursos', href: '#' },
+      { label: 'Speaker', href: '#' },
+      { label: 'Consultoría', href: '#' },
+    ]
+  },
+  {
+    t: 'Contenido', l: [
+      { label: 'Blog', href: '#' },
+      { label: 'Podcast', href: '#' },
+      { label: 'Apariciones', href: '#' },
+      { label: 'Recursos', href: '#' },
+      { label: 'Testimonios', href: '#' },
+    ]
+  },
+  {
+    t: 'Sígueme', l: [
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/lucaspatano/', external: true },
+      { label: 'YouTube', href: 'https://www.youtube.com/@hackeandoproductos', external: true },
+      { label: 'Spotify', href: 'https://open.spotify.com/show/6MSn0GCobgEfJNlddXg0eW', external: true },
+    ]
+  },
 ]
 
 export default function Footer() {
@@ -46,16 +68,24 @@ export default function Footer() {
               <div className="mono" style={{ fontSize: 10, color: 'var(--muted)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 16 }}>{c.t}</div>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 9 }}>
                 {c.l.map(item => (
-                  <li key={item}><a style={{ fontSize: 14, color: 'var(--ink-2)' }}>{item}</a></li>
+                  <li key={item.label}>
+                    <a
+                      href={item.href}
+                      {...('external' in item && item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                      style={{ fontSize: 14, color: 'var(--ink-2)' }}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
                 ))}
               </ul>
             </div>
           ))}
         </div>
 
-        {/* Wordmark */}
+        {/* Wordmark — fijo en 60px */}
         <div style={{ borderTop: '1px solid var(--line)', padding: isMobile ? '32px 0 24px' : '48px 0 32px' }}>
-          <div className="serif" style={{ fontSize: 'clamp(52px, 16vw, 240px)', lineHeight: 0.9, letterSpacing: '-0.04em', textAlign: 'center' }}>
+          <div className="serif" style={{ fontSize: 60, lineHeight: 0.9, letterSpacing: '-0.04em', textAlign: 'center' }}>
             Lucas <em style={{ color: 'var(--accent)' }}>Patanó</em>
           </div>
         </div>

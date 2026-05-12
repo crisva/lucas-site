@@ -3,9 +3,9 @@
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 
 const items = [
-  { t: 'Diagnóstico personalizado', d: 'Analizamos tu situación actual y establecemos objetivos claros para la sesión.' },
+  { t: 'Diagnóstico personalizado', d: 'Antes de arrancar, entiendo tu contexto. La sesión no empieza desde cero — empieza desde donde estás vos.' },
   { t: 'Mentalidad de producto y growth', d: 'Abordamos el problema desde la estrategia, no solo desde la ejecución.' },
-  { t: 'Próximos pasos concretos', d: 'Salís con claridad sobre qué hacer, no solo con ideas. Sin frameworks vacíos.' },
+  { t: 'Próximos pasos concretos', d: 'No salís con una lista de lecturas recomendadas. Salís sabiendo exactamente qué hacer primero.' },
 ]
 
 export default function ReservarQueEsperar() {
@@ -21,9 +21,9 @@ export default function ReservarQueEsperar() {
           alignItems: 'center',
         }}>
           <div>
-            <div className="eyebrow" style={{ marginBottom: 16 }}>— Coaching</div>
+            <div className="eyebrow" style={{ marginBottom: 16 }}>— Coaching & Mentorías</div>
             <h2 className="serif" style={{ fontSize: isMobile ? 'clamp(32px, 8vw, 48px)' : 'clamp(36px, 3.5vw, 52px)', lineHeight: 1.05 }}>
-              ¿Qué esperar de<br /><em style={{ color: 'var(--accent)' }}>nuestras sesiones?</em>
+              ¿Qué te llevás de<br /><em style={{ color: 'var(--accent)' }}>cada sesión?</em>
             </h2>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
@@ -36,7 +36,7 @@ export default function ReservarQueEsperar() {
                   marginTop: 2,
                 }}>
                   <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                    <path d="M1 4L3.5 6.5L9 1" stroke="var(--accent)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M1 4L3.5 6.5L9 1" stroke="var(--accent)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
                 <div>

@@ -5,7 +5,7 @@ import { useBreakpoint } from '@/hooks/useBreakpoint'
 const stats = [
   { v: '+15 años', l: 'Experiencia en producto y negocio digital' },
   { v: '+10.000', l: 'Seguidores en Linkedin' },
-  { v: '+50', l: 'Mentorías en LATAM' },
+  { v: '+60', l: 'Mentorías en LATAM' },
   { v: '+40', l: 'Charlas, entrevistas y apariciones' },
 ]
 
