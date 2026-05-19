@@ -61,7 +61,7 @@ export default function ReservarHero() {
   const [año, setAño] = useState(hoy.getFullYear())
   const [dia, setDia] = useState<number | null>(null)
   const [hora, setHora] = useState<string | null>(null)
-  const [servicio, setServicio] = useState<Servicio>('coaching')
+  const [servicio, setServicio] = useState<string>('coaching')
   const [wStep, setWStep] = useState<WidgetStep>('booking')
   const [form, setForm] = useState({ nombre: '', email: '', contexto: '' })
   const [payMethod, setPayMethod] = useState<string | null>(null)
