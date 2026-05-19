@@ -1,20 +1,38 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { readFileSync, writeFileSync } from 'fs'
-import { join } from 'path'
+import { createClient } from '@supabase/supabase-js'
 
-const CONFIG_PATH = join(process.cwd(), 'data', 'config.json')
+const supabase = createClient(
+  process.env.SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+)
+
+const DEFAULT_CONFIG = {
+  servicios: [
+    { id: 'coaching', nombre: 'Sesión introductoria gratuita', descripcion: 'Product Coaching', duracion: 15, precio: 0,   moneda: 'USD', activo: true },
+    { id: 'mentoria', nombre: 'Mentoría 1:1',                  descripcion: 'Sesión individual', duracion: 60, precio: 180, moneda: 'USD', activo: true },
+  ],
+  horariosActivos:   ['09:00', '11:00', '14:00', '16:00', '18:00', '19:00'],
+  diasSemanaActivos: [1, 2, 3, 4, 5],
+  fechasBloqueadas:  [],
+  mensajeAgenda:     'Agenda abierta',
+}
 
 export async function GET() {
   try {
-    const data = readFileSync(CONFIG_PATH, 'utf-8')
-    return NextResponse.json(JSON.parse(data))
+    const { data, error } = await supabase
+      .from('booking_config')
+      .select('config')
+      .eq('id', 'main')
+      .single()
+
+    if (error || !data) return NextResponse.json(DEFAULT_CONFIG)
+    return NextResponse.json(data.config)
   } catch {
-    return NextResponse.json({ error: 'No se pudo leer la configuración' }, { status: 500 })
+    return NextResponse.json(DEFAULT_CONFIG)
   }
 }
 
 export async function POST(req: NextRequest) {
-  // Leer cookie directamente del request (compatible con Next.js 16)
   const session = req.cookies.get('admin_session')?.value
   if (session !== 'authenticated') {
     return NextResponse.json({ error: 'No autorizado' }, { status: 401 })
@@ -22,10 +40,14 @@ export async function POST(req: NextRequest) {
 
   try {
     const body = await req.json()
-    writeFileSync(CONFIG_PATH, JSON.stringify(body, null, 2), 'utf-8')
+    const { error } = await supabase
+      .from('booking_config')
+      .upsert({ id: 'main', config: body })
+
+    if (error) throw error
     return NextResponse.json({ ok: true })
   } catch (e) {
     console.error('Error guardando config:', e)
-    return NextResponse.json({ error: 'No se pudo guardar la configuración' }, { status: 500 })
+    return NextResponse.json({ error: 'No se pudo guardar' }, { status: 500 })
   }
 }
