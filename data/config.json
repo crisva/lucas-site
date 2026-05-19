@@ -1,0 +1,68 @@
+{
+  "servicios": [
+    {
+      "id": "coaching",
+      "nombre": "Sesión introductoria gratuita",
+      "descripcion": "Product Coaching",
+      "duracion": 15,
+      "precio": 0,
+      "moneda": "USD",
+      "activo": true
+    },
+    {
+      "id": "mentoria",
+      "nombre": "Mentoría 1:1",
+      "descripcion": "Sesión individual",
+      "duracion": 60,
+      "precio": 180,
+      "moneda": "USD",
+      "activo": true
+    },
+    {
+      "nombre": "Crisva Help",
+      "descripcion": "Ayuda a escrisva",
+      "duracion": 60,
+      "precio": 100,
+      "moneda": "USD",
+      "id": "1779216630385",
+      "activo": true
+    },
+    {
+      "nombre": "Lucas Help",
+      "descripcion": "Para vos",
+      "duracion": 60,
+      "precio": 120,
+      "moneda": "USD",
+      "id": "1779216737644",
+      "activo": true
+    }
+  ],
+  "horarios": [
+    "09:00",
+    "10:00",
+    "11:00",
+    "14:00",
+    "15:00",
+    "16:00",
+    "17:00",
+    "18:00",
+    "19:00"
+  ],
+  "horariosActivos": [
+    "09:00",
+    "11:00",
+    "14:00",
+    "16:00",
+    "18:00",
+    "19:00"
+  ],
+  "diasSemanaActivos": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "fechasBloqueadas": [],
+  "mensajeAgenda": "Agenda abierta"
+}

@@ -1,12 +1,26 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 
-type Servicio = 'coaching' | 'mentoria'
 type WidgetStep = 'booking' | 'datos' | 'pago' | 'confirm'
 
-const HORARIOS = ['09:00', '11:00', '14:00', '16:00', '18:00', '19:00']
+type ServicioConfig = {
+  id: string; nombre: string; descripcion: string
+  duracion: number; precio: number; moneda: string; activo: boolean
+}
+type BookingConfig = {
+  servicios: ServicioConfig[]
+  horariosActivos: string[]
+  diasSemanaActivos: number[]
+  fechasBloqueadas: string[]
+  mensajeAgenda: string
+}
+const DEFAULT_SERVICIOS: ServicioConfig[] = [
+  { id: 'coaching', nombre: 'Sesión introductoria gratuita', descripcion: 'Product Coaching', duracion: 15, precio: 0, moneda: 'USD', activo: true },
+  { id: 'mentoria', nombre: 'Mentoría 1:1', descripcion: 'Sesión individual', duracion: 60, precio: 180, moneda: 'USD', activo: true },
+]
+const DEFAULT_HORARIOS = ['09:00', '11:00', '14:00', '16:00', '18:00', '19:00']
 const MESES = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
 const DIAS_SEMANA_SHORT = ['Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá', 'Do']
 
@@ -33,6 +47,15 @@ const payMethods = [
 export default function ReservarHero() {
   const { isMobile, isTablet } = useBreakpoint()
 
+  const [bookingConfig, setBookingConfig] = useState<BookingConfig | null>(null)
+
+  useEffect(() => {
+    fetch('/api/admin/config')
+      .then(r => r.json())
+      .then(setBookingConfig)
+      .catch(() => { })
+  }, [])
+
   const hoy = new Date()
   const [mes, setMes] = useState(hoy.getMonth())
   const [año, setAño] = useState(hoy.getFullYear())
@@ -45,13 +68,22 @@ export default function ReservarHero() {
   const [paying, setPaying] = useState(false)
 
   const { offset, total } = getDiasDelMes(año, mes)
-  const esPago = servicio === 'mentoria'
-  const precio = esPago ? 'USD 180' : 'Gratis'
 
   const prevMes = () => { if (mes === 0) { setMes(11); setAño(a => a - 1) } else setMes(m => m - 1); setDia(null); setHora(null) }
   const nextMes = () => { if (mes === 11) { setMes(0); setAño(a => a + 1) } else setMes(m => m + 1); setDia(null); setHora(null) }
   const isPasado = (d: number) => { const f = new Date(año, mes, d); f.setHours(0, 0, 0, 0); const h = new Date(); h.setHours(0, 0, 0, 0); return f < h }
-  const esFinde = (d: number) => { const dow = new Date(año, mes, d).getDay(); return dow === 0 || dow === 6 }
+  const esBloqueado = (d: number) => {
+    const fecha = `${año}-${String(mes + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`
+    const dow = new Date(año, mes, d).getDay()
+    const diasActivos = bookingConfig?.diasSemanaActivos ?? [1, 2, 3, 4, 5]
+    return !diasActivos.includes(dow) || (bookingConfig?.fechasBloqueadas ?? []).includes(fecha)
+  }
+
+  const serviciosActivos = (bookingConfig?.servicios ?? DEFAULT_SERVICIOS).filter(s => s.activo)
+  const horariosActivos = bookingConfig?.horariosActivos ?? DEFAULT_HORARIOS
+  const servicioActual = serviciosActivos.find(s => s.id === servicio) ?? serviciosActivos[0]
+  const esPago = (servicioActual?.precio ?? 0) > 0
+  const precio = servicioActual ? (esPago ? `${servicioActual.moneda} ${servicioActual.precio}` : 'Gratis') : '—'
 
   const canBook = dia !== null && hora !== null
   const canDatos = form.nombre.trim() !== '' && form.email.trim() !== ''
@@ -76,7 +108,7 @@ export default function ReservarHero() {
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }} className="mono">
             <span style={{ width: 8, height: 8, borderRadius: 999, background: '#4CAF50', boxShadow: '0 0 0 4px rgba(76,175,80,0.15)', flexShrink: 0 }} />
             <span style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
-              Agenda abierta · {MESES[new Date().getMonth()]} {new Date().getFullYear()}
+              {bookingConfig?.mensajeAgenda ?? 'Agenda abierta'} · {MESES[new Date().getMonth()]} {new Date().getFullYear()}
             </span>
           </div>
 
@@ -193,18 +225,15 @@ export default function ReservarHero() {
                   <div style={{ marginBottom: 14 }}>
                     <div className="mono" style={{ fontSize: 9, color: 'var(--muted)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 6 }}>Servicio</div>
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6 }}>
-                      {([
-                        { id: 'coaching', label: 'Intro gratuita', sub: '15 min · Gratis' },
-                        { id: 'mentoria', label: 'Mentoría 1:1', sub: '60 min · USD 180' },
-                      ] as { id: Servicio; label: string; sub: string }[]).map(s => (
+                      {serviciosActivos.map(s => (
                         <button key={s.id} onClick={() => setServicio(s.id)} style={{
                           padding: '10px', borderRadius: 8, textAlign: 'left', cursor: 'pointer',
                           border: servicio === s.id ? '1.5px solid var(--accent)' : '1px solid var(--line)',
                           background: servicio === s.id ? 'color-mix(in oklab, var(--accent) 8%, var(--surface))' : 'var(--bg)',
                           transition: 'all 0.15s',
                         }}>
-                          <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--ink)', marginBottom: 2 }}>{s.label}</div>
-                          <div className="mono" style={{ fontSize: 9, color: 'var(--muted)' }}>{s.sub}</div>
+                          <div style={{ fontSize: 12, fontWeight: 600, color: 'var(--ink)', marginBottom: 2 }}>{s.nombre}</div>
+                          <div className="mono" style={{ fontSize: 9, color: 'var(--muted)' }}>{s.duracion} min · {s.precio === 0 ? 'Gratis' : `${s.moneda} ${s.precio}`}</div>
                         </button>
                       ))}
                     </div>
@@ -233,7 +262,7 @@ export default function ReservarHero() {
                       {Array.from({ length: offset }).map((_, i) => <div key={`e${i}`} />)}
                       {Array.from({ length: total }).map((_, i) => {
                         const d = i + 1
-                        const disabled = isPasado(d) || esFinde(d)
+                        const disabled = isPasado(d) || esBloqueado(d)
                         const sel = dia === d
                         return (
                           <button key={d} disabled={disabled} onClick={() => { setDia(d); setHora(null) }} style={{
@@ -255,7 +284,7 @@ export default function ReservarHero() {
                         Horarios (GMT-3)
                       </div>
                       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 5 }}>
-                        {HORARIOS.map(h => (
+                        {horariosActivos.map(h => (
                           <button key={h} onClick={() => setHora(h)} style={{
                             padding: '7px 4px', borderRadius: 8, fontSize: 12,
                             border: hora === h ? '1.5px solid var(--accent)' : '1px solid var(--line)',
@@ -396,7 +425,7 @@ export default function ReservarHero() {
                   <div style={{ background: 'var(--bg-2)', padding: '14px 20px', borderTop: '1px solid var(--line)' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
                       <span className="mono" style={{ fontSize: 10, color: 'var(--muted)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Total</span>
-                      <span className="serif" style={{ fontSize: 22 }}>USD 180</span>
+                      <span className="serif" style={{ fontSize: 22 }}>{precio}</span>
                     </div>
                     <button
                       disabled={!payMethod || paying}
@@ -415,7 +444,7 @@ export default function ReservarHero() {
                     >
                       {paying ? (
                         <><svg width="13" height="13" viewBox="0 0 24 24" fill="none" style={{ animation: 'spin 1s linear infinite' }}><circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" opacity="0.3" /><path d="M12 2a10 10 0 0 1 10 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg> Procesando...</>
-                      ) : 'Reservar y pagar →'}
+                      ) : `Pagar ${precio} →`}
                     </button>
                     <button onClick={() => setWStep('datos')} style={{ width: '100%', marginTop: 6, padding: '8px', fontSize: 12, color: 'var(--muted)', background: 'none', border: 'none', cursor: 'pointer' }}>
                       ← Volver
@@ -436,7 +465,7 @@ export default function ReservarHero() {
                   </p>
                   {[
                     ['Nombre', form.nombre],
-                    ['Servicio', servicio === 'coaching' ? 'Intro gratuita' : 'Mentoría 1:1'],
+                    ['Servicio', servicioActual?.nombre ?? '—'],
                     ['Fecha', `${dia} ${MESES[mes]} · ${hora} GMT-3`],
                     ['Precio', precio],
                   ].map(([k, v]) => (
