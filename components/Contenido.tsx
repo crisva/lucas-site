@@ -8,21 +8,21 @@ const cards = [
     t: 'Hackeando Productos',
     d: 'Conversaciones sin filtro sobre producto, growth y lo que nadie te enseña en un MBA. Cada episodio es una excusa para ir a fondo en los temas que más importan a quienes construyen productos en LATAM.',
     cta: 'Escuchar el podcast',
-    href: '#',
+    href: 'https://www.youtube.com/@hackeandoproductos',
   },
   {
     tag: '007.B · Artículos',
     t: 'Lo que pienso, por escrito.',
     d: 'Reflexiones, análisis y aprendizajes sobre producto, liderazgo y growth. Sin periodicidad fija — solo cuando hay algo que vale la pena decir.',
     cta: 'Leer los artículos',
-    href: '#',
+    href: 'https://www.linkedin.com/in/lucaspatano/recent-activity/articles/',
   },
   {
     tag: '007.C · Apariciones',
     t: 'Cuando me invitan a hablar, acepto.',
     d: 'Charlas en eventos, participaciones como invitado en podcasts de terceros y apariciones en medios y artículos periodísticos. Todo en un solo lugar.',
     cta: 'Ver todas las apariciones',
-    href: '#',
+    href: 'https://www.linkedin.com/in/lucaspatano/',
   },
 ]
 

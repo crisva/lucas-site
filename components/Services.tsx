@@ -117,7 +117,7 @@ const items = [
     d: 'Cohortes sincrónicas para quienes quieren crecer o quieren entrar al mundo del product management. Clases con teoría, práctica y experiencia.',
     meta: 'En asociación con Product Hub',
     cta: 'Ver próximos cohortes',
-    ctaHref: 'https://producthub.la',
+    ctaHref: 'https://www.producthub.com.ar',
   },
   {
     tag: 'Corporativo',
