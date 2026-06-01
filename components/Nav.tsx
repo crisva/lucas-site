@@ -1,20 +1,23 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 
 const links = [
-  { label: 'Inicio', href: '#top' },
-  { label: 'Coaching', href: '#services' },
-  { label: 'Cursos', href: '#cursos' },
-  { label: 'Podcast', href: '#podcast' },
-  { label: 'Blog', href: '#blog' },
+  { label: 'Inicio', href: '#top', homeHref: '/' },
+  { label: 'Coaching', href: '#services', homeHref: '/#services' },
+  { label: 'Cursos', href: '#cursos', homeHref: '/#cursos' },
+  { label: 'Podcast', href: '#podcast', homeHref: '/#podcast' },
+  { label: 'Blog', href: '#blog', homeHref: '/#blog' },
 ]
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const { isMobile, isTablet } = useBreakpoint()
+  const pathname = usePathname()
+  const isHome = pathname === '/'
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 20)
@@ -22,11 +25,10 @@ export default function Nav() {
     return () => window.removeEventListener('scroll', fn)
   }, [])
 
-  useEffect(() => {
-    if (!isMobile) setOpen(false)
-  }, [isMobile])
+  useEffect(() => { if (!isMobile) setOpen(false) }, [isMobile])
 
   const handleNav = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (!isHome) return // deja que el navegador vaya a /#section normalmente
     e.preventDefault()
     if (href === '#top') {
       window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -37,10 +39,10 @@ export default function Nav() {
     setOpen(false)
   }
 
+  const getLinkHref = (l: typeof links[0]) => isHome ? l.href : l.homeHref
+
   const navStyle: React.CSSProperties = {
-    position: 'sticky',
-    top: 0,
-    zIndex: 50,
+    position: 'sticky', top: 0, zIndex: 50,
     background: scrolled || open ? 'color-mix(in oklab, var(--bg) 92%, transparent)' : 'transparent',
     backdropFilter: scrolled || open ? 'blur(18px) saturate(1.2)' : 'none',
     borderBottom: scrolled || open ? '1px solid var(--line)' : '1px solid transparent',
@@ -54,7 +56,11 @@ export default function Nav() {
         padding: isMobile ? '16px 20px' : isTablet ? '16px 32px' : '18px 48px',
       }}>
         {/* Logo */}
-        <a href="#top" onClick={e => handleNav(e, '#top')} style={{ display: 'flex', alignItems: 'center', gap: 10, zIndex: 60 }}>
+        <a
+          href={isHome ? '#top' : '/'}
+          onClick={e => isHome && handleNav(e, '#top')}
+          style={{ display: 'flex', alignItems: 'center', gap: 10, zIndex: 60 }}
+        >
           <div style={{
             width: 34, height: 34, borderRadius: 999,
             background: 'var(--ink)', color: 'var(--bg)',
@@ -73,7 +79,7 @@ export default function Nav() {
             {links.map(l => (
               <a
                 key={l.label}
-                href={l.href}
+                href={getLinkHref(l)}
                 onClick={e => handleNav(e, l.href)}
                 style={{ padding: '8px 12px', fontSize: 14, color: 'var(--ink-2)', borderRadius: 999 }}
               >
@@ -86,8 +92,10 @@ export default function Nav() {
         {/* Desktop CTA */}
         {!isMobile && !isTablet && (
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <a href="#contact" style={{ fontSize: 14, color: 'var(--ink-2)', padding: '8px 12px' }}>Contactar</a>
-            <a href="#services" onClick={e => handleNav(e, '#services')} style={{
+            <a href="mailto:lucaspatano@gmail.com" style={{ fontSize: 14, color: 'var(--ink-2)', padding: '8px 12px' }}>
+              Contactar
+            </a>
+            <a href="/reservar" style={{
               fontSize: 14, fontWeight: 500,
               background: 'var(--ink)', color: 'var(--bg)',
               padding: '10px 18px', borderRadius: 999,
@@ -103,7 +111,7 @@ export default function Nav() {
 
         {/* Tablet CTA */}
         {isTablet && !isMobile && (
-          <a href="#services" onClick={e => handleNav(e, '#services')} style={{
+          <a href="/reservar" style={{
             fontSize: 13, fontWeight: 500,
             background: 'var(--ink)', color: 'var(--bg)',
             padding: '9px 16px', borderRadius: 999,
@@ -128,7 +136,7 @@ export default function Nav() {
             {links.map(l => (
               <a
                 key={l.label}
-                href={l.href}
+                href={getLinkHref(l)}
                 onClick={e => handleNav(e, l.href)}
                 style={{ padding: '12px 4px', fontSize: 18, fontWeight: 500, borderBottom: '1px solid var(--line)' }}
               >
@@ -136,7 +144,7 @@ export default function Nav() {
               </a>
             ))}
           </div>
-          <a href="#services" onClick={e => handleNav(e, '#services')} style={{
+          <a href="/reservar" style={{
             display: 'block', textAlign: 'center',
             background: 'var(--ink)', color: 'var(--bg)',
             padding: '14px 20px', borderRadius: 999, fontSize: 15, fontWeight: 500,
