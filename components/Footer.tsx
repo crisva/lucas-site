@@ -5,27 +5,25 @@ import { useBreakpoint } from '@/hooks/useBreakpoint'
 const cols = [
   {
     t: 'Servicios', l: [
-      { label: 'Mentorías', href: '#' },
-      { label: 'Coaching', href: '#' },
-      { label: 'Cursos', href: '#' },
-      { label: 'Speaker', href: '#' },
-      { label: 'Consultoría', href: '#' },
+      { label: 'Coaching',   href: '/#services' },
+      { label: 'Mentorías',  href: '/#services' },
+      { label: 'Cursos',     href: 'https://www.producthub.com.ar/cursos-online/growth', external: true },
+      { label: 'Speaker',    href: 'mailto:lucaspatano@gmail.com' },
     ]
   },
   {
     t: 'Contenido', l: [
-      { label: 'Blog', href: '#' },
-      { label: 'Podcast', href: '#' },
-      { label: 'Apariciones', href: '#' },
-      { label: 'Recursos', href: '#' },
-      { label: 'Testimonios', href: '#' },
+      { label: 'Podcast',     href: 'https://www.youtube.com/@hackeandoproductos', external: true },
+      { label: 'Artículos',   href: 'https://www.linkedin.com/in/lucaspatano/recent-activity/articles/', external: true },
+      { label: 'Apariciones', href: '/#contenido' },
+      { label: 'Testimonios', href: '/#testimonios' },
     ]
   },
   {
     t: 'Sígueme', l: [
-      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/lucaspatano/', external: true },
-      { label: 'YouTube', href: 'https://www.youtube.com/@hackeandoproductos', external: true },
-      { label: 'Spotify', href: 'https://open.spotify.com/show/6MSn0GCobgEfJNlddXg0eW', external: true },
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/lucaspatano/',              external: true },
+      { label: 'YouTube',  href: 'https://www.youtube.com/@hackeandoproductos',            external: true },
+      { label: 'Spotify',  href: 'https://open.spotify.com/show/6MSn0GCobgEfJNlddXg0eW', external: true },
     ]
   },
 ]
@@ -83,7 +81,7 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Wordmark — fijo en 60px */}
+        {/* Wordmark */}
         <div style={{ borderTop: '1px solid var(--line)', padding: isMobile ? '32px 0 24px' : '48px 0 32px' }}>
           <div className="serif" style={{ fontSize: 60, lineHeight: 0.9, letterSpacing: '-0.04em', textAlign: 'center' }}>
             Lucas <em style={{ color: 'var(--accent)' }}>Patanó</em>

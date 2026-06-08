@@ -2,6 +2,7 @@
 
 import Cal, { getCalApi } from '@calcom/embed-react'
 import { useState, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 
 const MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre']
@@ -28,7 +29,13 @@ const incluye = [
 
 export default function ReservarHero() {
   const { isMobile, isTablet } = useBreakpoint()
-  const [activo, setActivo] = useState<Servicio>('introductoria')
+  const searchParams = useSearchParams()
+  const paramServicio = searchParams.get('servicio') as Servicio | null
+  const [activo, setActivo] = useState<Servicio>(
+    paramServicio && ['introductoria', 'mentoria'].includes(paramServicio)
+      ? paramServicio
+      : 'introductoria'
+  )
 
   useEffect(() => {
     servicios.forEach(async s => {

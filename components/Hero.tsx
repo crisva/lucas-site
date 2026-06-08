@@ -51,7 +51,7 @@ export default function Hero() {
 
             {/* CTAs */}
             <div style={{ display: 'flex', gap: 10, alignItems: 'center', flexWrap: 'wrap' }}>
-              <a href="#book" style={{
+              <a href="/reservar" target="_blank" rel="noopener noreferrer" style={{
                 background: 'var(--ink)', color: 'var(--bg)',
                 padding: isMobile ? '14px 22px' : '16px 28px', borderRadius: 999, fontSize: 15, fontWeight: 500,
                 display: 'inline-flex', alignItems: 'center', gap: 10,

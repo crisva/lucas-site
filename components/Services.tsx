@@ -69,7 +69,7 @@ function ServiceCard({ idx, tag, t, d, meta, cta, ctaHref, ctaSecondary, ctaSeco
           {meta}
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-          <a href={ctaHref} style={{
+          <a href={ctaHref} target="_blank" rel="noopener noreferrer" style={{
             fontSize: 13, fontWeight: 500,
             background: muted ? 'transparent' : 'var(--ink)', color: muted ? 'var(--ink)' : 'var(--bg)',
             padding: '10px 16px', borderRadius: 999,
@@ -101,7 +101,7 @@ const items = [
     d: 'Para líderes que quieren un cambio de fondo. Trabajamos juntos en estrategia, liderazgo y desarrollo profesional — con objetivos claros y resultados medibles.',
     meta: 'Sesión introductoria gratuita de 15 min · Packs desde USD 450',
     cta: 'Reservar sesión gratuita',
-    ctaHref: '#book-coaching',
+    ctaHref: '/reservar?servicio=introductoria',
   },
   {
     tag: 'Core',
@@ -109,7 +109,7 @@ const items = [
     d: 'Para decisiones que no pueden esperar. Una sesión de hasta 1 hora para destrabar algo concreto — sin rodeos, con foco en lo que importa.',
     meta: 'Desde USD 180 · Sesión individual · Reserva con pago online',
     cta: 'Reservar mentoría',
-    ctaHref: '#book-mentoria',
+    ctaHref: '/reservar?servicio=mentoria',
   },
   {
     tag: 'Formación',
@@ -117,7 +117,7 @@ const items = [
     d: 'Cohortes sincrónicas para quienes quieren crecer o quieren entrar al mundo del product management. Clases con teoría, práctica y experiencia.',
     meta: 'En asociación con Product Hub',
     cta: 'Ver próximos cohortes',
-    ctaHref: 'https://www.producthub.com.ar',
+    ctaHref: 'https://www.producthub.com.ar/cursos-online/growth',
   },
   {
     tag: 'Corporativo',

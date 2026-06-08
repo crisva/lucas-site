@@ -23,8 +23,8 @@ export default function CTABand() {
           </h3>
         </div>
         <div style={{ display: 'flex', gap: 10, flexShrink: 0, flexWrap: 'wrap' }}>
-          <a style={{ background: 'var(--ink)', color: 'var(--bg)', padding: '14px 24px', borderRadius: 999, fontSize: 14, fontWeight: 500 }}>Reservar →</a>
-          <a style={{ padding: '14px 20px', borderRadius: 999, fontSize: 14, border: '1px solid var(--ink)' }}>Consultar</a>
+          <a href="/reservar" target="_blank" rel="noopener noreferrer" style={{ background: 'var(--ink)', color: 'var(--bg)', padding: '14px 24px', borderRadius: 999, fontSize: 14, fontWeight: 500 }}>Reservar →</a>
+          <a href="mailto:lucaspatano@gmail.com" style={{ padding: '14px 20px', borderRadius: 999, fontSize: 14, border: '1px solid var(--ink)' }}>Consultar</a>
         </div>
       </div>
     </section>

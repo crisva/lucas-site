@@ -5,11 +5,11 @@ import { usePathname } from 'next/navigation'
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 
 const links = [
-  { label: 'Inicio', href: '#top', homeHref: '/' },
-  { label: 'Coaching', href: '#services', homeHref: '/#services' },
-  { label: 'Cursos', href: '#cursos', homeHref: '/#cursos' },
-  { label: 'Podcast', href: '#podcast', homeHref: '/#podcast' },
-  { label: 'Blog', href: '#blog', homeHref: '/#blog' },
+  { label: 'Inicio',   href: '#top',       homeHref: '/'           },
+  { label: 'Coaching', href: '#services',   homeHref: '/#services'  },
+  { label: 'Cursos',   href: '#services',   homeHref: '/#services'  },
+  { label: 'Podcast',  href: '#contenido',  homeHref: '/#contenido' },
+  { label: 'Blog',     href: '#contenido',  homeHref: '/#contenido' },
 ]
 
 export default function Nav() {
