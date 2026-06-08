@@ -172,7 +172,7 @@ export default function Contenido() {
               <div style={{ marginTop: 32 }}>
                 <div style={{ height: 1, background: 'var(--line)', marginBottom: 20 }} />
                 {c.modal ? (
-                  <button onClick={() => setShowModal(true)} style={{ fontSize: 14, fontWeight: 500, display: 'inline-flex', alignItems: 'center', gap: 8, color: 'var(--ink)', borderBottom: '1px solid var(--ink)', paddingBottom: 2, background: 'none', borderTop: 'none', borderLeft: 'none', borderRight: 'none', borderBottom: '1px solid var(--ink)', cursor: 'pointer', padding: '0 0 2px 0' }}>
+                  <button onClick={() => setShowModal(true)} style={{ fontSize: 14, fontWeight: 500, display: 'inline-flex', alignItems: 'center', gap: 8, color: 'var(--ink)', borderBottom: '1px solid var(--ink)', paddingBottom: 2, background: 'none', outline: 'none', borderColor: 'transparent', borderStyle: 'solid', borderWidth: '0 0 1px 0', borderBottomColor: 'var(--ink)', cursor: 'pointer', padding: '0 0 2px 0' }}>
                     {c.cta} →
                   </button>
                 ) : (
