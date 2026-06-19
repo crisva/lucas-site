@@ -4,11 +4,11 @@ import { useState } from 'react'
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 
 const podcasts = [
-  { id: 'DtsIF4ki2NM', titulo: 'Growth Rockstar Podcast',         sub: 'Con Ariel Quiñones' },
+  { id: 'DtsIF4ki2NM', titulo: 'Growth Rockstar Podcast',         sub: 'Con Dylan Rosemberg' },
   { id: 'N3PbxzL4vJc', titulo: 'Hablemos de Producto',            sub: 'Episodio especial' },
   { id: '3ifYJJswR98', titulo: 'Fintech Latam Podcast',            sub: 'Producto en fintech' },
   { id: '7cluAaR4r64', titulo: 'Product Thinking',                 sub: 'Liderazgo en producto' },
-  { id: 'Iz2YQlABW4I', titulo: 'Startup CPO Podcast',              sub: 'De PM a CPO' },
+  { id: 'Iz2YQlABW4I', titulo: 'Innovación en la banca',              sub: 'Con Ricardo Araya Gautier' },
   { id: '3i5W6JQsLF0', titulo: 'Hackeando Negocios',               sub: 'Growth y estrategia' },
   { id: 'a39DuRNyPfg', titulo: 'Product Leaders LATAM',            sub: 'Panel de líderes' },
   { id: 'c8V5vw-PJEU', titulo: 'Construyendo Producto',            sub: 'Decisiones sin datos' },
