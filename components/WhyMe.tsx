@@ -44,8 +44,8 @@ export default function WhyMe() {
           fontSize: isMobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(36px, 3.8vw, 56px)',
           lineHeight: 1.05, marginBottom: isMobile ? 40 : 72, maxWidth: 900,
         }}>
-          No hay atajos.<br />
-          <em style={{ color: 'var(--accent)' }}>Pero hay alguien que ya recorrió el camino.</em>
+          No hay atajos<br />
+          <em style={{ color: 'var(--accent)' }}>Pero hay alguien que ya recorrió el camino</em>
         </h2>
 
         <div>

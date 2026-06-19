@@ -180,10 +180,10 @@ export default function Contenido() {
 
       <div className="wrap">
         <div style={{ marginBottom: isMobile ? 40 : 72 }}>
-          <div className="eyebrow" style={{ marginBottom: 16 }}>— 007 · Contenido</div>
+          <div className="eyebrow" style={{ marginBottom: 16 }}>007 · Contenido</div>
           <h2 className="serif" style={{ fontSize: isMobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(40px, 4.5vw, 68px)', lineHeight: 1, maxWidth: 700 }}>
             Contenido que no se queda en la{' '}
-            <em style={{ color: 'var(--accent)' }}>teoría.</em>
+            <em style={{ color: 'var(--accent)' }}>teoría</em>
           </h2>
         </div>
 
