@@ -102,7 +102,6 @@ function ModalApariciones({ onClose }: { onClose: () => void }) {
                     {f.placeholder ? (
                       <div style={{ textAlign: 'center', padding: 12 }}>
                         <div style={{ fontSize: 20, marginBottom: 6, opacity: 0.3 }}>📷</div>
-                        <div className="mono" style={{ fontSize: 9, color: 'var(--muted)', lineHeight: 1.4 }}>Subí la foto a<br />public/apariciones/</div>
                       </div>
                     ) : (
                       <img src={f.src} alt={f.titulo} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
@@ -115,9 +114,7 @@ function ModalApariciones({ onClose }: { onClose: () => void }) {
                 </div>
               ))}
             </div>
-            <div className="mono" style={{ fontSize: 10, color: 'var(--muted)', marginTop: 12 }}>
-              Para agregar fotos: subí los archivos a <code style={{ background: 'var(--bg-2)', padding: '1px 5px', borderRadius: 4 }}>public/apariciones/</code> y actualizá los nombres en el array <code style={{ background: 'var(--bg-2)', padding: '1px 5px', borderRadius: 4 }}>fotos</code> en Contenido.tsx
-            </div>
+            
           </div>
 
           {/* PAPERS */}
