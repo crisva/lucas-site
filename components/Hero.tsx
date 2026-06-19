@@ -35,14 +35,14 @@ export default function Hero() {
           alignItems: 'end',
         }}>
           <div>
-            <div className="eyebrow" style={{ marginBottom: 20 }}>— 001 · Mentorías para dar ese siguiente paso en producto</div>
+            <div className="eyebrow" style={{ marginBottom: 20 }}>001 · Mentorías para dar ese siguiente paso en producto</div>
 
             <h1 className="serif" style={{
               fontSize: isMobile ? 'clamp(38px, 10vw, 60px)' : 'clamp(44px, 5.5vw, 84px)',
               lineHeight: 1.02, marginBottom: 24, letterSpacing: '-0.03em',
             }}>
               Cuando tu producto, tu carrera o tu equipo está estancado, es el momento de{' '}
-              <em style={{ color: 'var(--accent)' }}>llamarme.</em>
+              <em style={{ color: 'var(--accent)' }}>llamarme</em>
             </h1>
 
             <p style={{ fontSize: isMobile ? 16 : 18, color: 'var(--ink-2)', maxWidth: 540, marginBottom: 32, lineHeight: 1.6 }}>

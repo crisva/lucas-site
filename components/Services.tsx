@@ -98,7 +98,7 @@ const items = [
   {
     tag: 'Programa',
     t: 'Product Coaching',
-    d: 'Para líderes que quieren un cambio de fondo. Trabajamos juntos en estrategia, liderazgo y desarrollo profesional — con objetivos claros y resultados medibles.',
+    d: 'Para líderes que quieren un cambio de fondo. Trabajamos juntos en estrategia, liderazgo y desarrollo profesional con objetivos claros y resultados medibles.',
     meta: 'Sesión introductoria gratuita de 15 min · Packs desde USD 450',
     cta: 'Reservar sesión gratuita',
     ctaHref: '/reservar?servicio=introductoria',
@@ -106,7 +106,7 @@ const items = [
   {
     tag: 'Core',
     t: 'Mentorías 1:1',
-    d: 'Para decisiones que no pueden esperar. Una sesión de hasta 1 hora para destrabar algo concreto — sin rodeos, con foco en lo que importa.',
+    d: 'Para decisiones que no pueden esperar. Una sesión de hasta 1 hora para destrabar algo concreto sin rodeos, con foco en lo que importa.',
     meta: 'Desde USD 180 · Sesión individual · Reserva con pago online',
     cta: 'Reservar mentoría',
     ctaHref: '/reservar?servicio=mentoria',
@@ -115,7 +115,7 @@ const items = [
     tag: 'Formación',
     t: 'Cursos',
     d: 'Cohortes sincrónicas para quienes quieren crecer o quieren entrar al mundo del product management. Clases con teoría, práctica y experiencia.',
-    meta: 'En asociación con Product Hub',
+    meta: 'EN ASOCIACIÓN CON PRODUCT HUB DIGITAL SCHOOL',
     cta: 'Ver próximos cohortes',
     ctaHref: 'https://www.producthub.com.ar/cursos-online/growth',
   },
@@ -123,8 +123,8 @@ const items = [
     tag: 'Corporativo',
     t: 'Speaker',
     d: 'Charlas de 45 min a 1 hora sobre producto, growth y liderazgo. Desde experiencia real, no teoría. Para eventos corporativos y conferencias.',
-    meta: 'Sin precio publicado · Consultar disponibilidad',
-    cta: 'Consultar disponibilidad',
+    meta: 'CONSULTAR PRECIOS Y DISPONIBILIDAD',
+    cta: 'CONSULTAR',
     ctaHref: 'mailto:lucaspatano@gmail.com',
   },
   {
@@ -154,15 +154,15 @@ export default function Services() {
           marginBottom: isMobile ? 40 : 72,
         }}>
           <div>
-            <div className="eyebrow" style={{ marginBottom: 16 }}>— 003 · Servicios</div>
+            <div className="eyebrow" style={{ marginBottom: 16 }}>003 · Servicios</div>
             <h2 className="serif" style={{ fontSize: isMobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(40px, 4.5vw, 68px)', lineHeight: 1 }}>
               Hay más de una forma de{' '}
-              <em style={{ color: 'var(--accent)' }}>trabajar juntos.</em>
+              <em style={{ color: 'var(--accent)' }}>trabajar juntos</em>
             </h2>
           </div>
           <div>
             <p style={{ fontSize: isMobile ? 15 : 17, color: 'var(--ink-2)', lineHeight: 1.6 }}>
-              Según dónde estés parado, hay un formato que tiene más sentido. Desde una sesión puntual para destrabar algo concreto hasta un proceso de mediano y largo plazo para cambiar cómo liderás.
+              Según dónde estés parado, hay un formato que tiene más sentido para ti. Desde una sesión puntual para destrabar algo concreto, hasta un proceso de mediano o largo plazo para cambiar cómo liderás.
             </p>
           </div>
         </div>

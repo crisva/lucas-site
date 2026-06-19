@@ -8,7 +8,7 @@ const rows = [
     e: 'Experiencia real',
     k: 'Producto',
     t: 'Empecé desde abajo. Llegué hasta arriba. Sé lo que pasa en cada escalón.',
-    d: 'Comencé como Analista de Producto y fui pasando por todos los roles — Product Owner, PM, CPO — en corporaciones y startups. No adapto teorías: traigo lo que aprendí tomando decisiones reales en cada etapa.',
+    d: 'Comencé como Analista de Producto y fui pasando por todos los roles hasta llegar a ser Chief Product Officer (CPO) en corporaciones y startups. No adapto teorías: traigo lo que aprendí tomando decisiones reales en cada etapa.',
   },
   {
     n: '02',
@@ -39,13 +39,13 @@ export default function WhyMe() {
   return (
     <section style={{ padding: isMobile ? '64px 0' : '120px 0' }}>
       <div className="wrap">
-        <div className="eyebrow" style={{ marginBottom: 16 }}>— 004 · Por qué conmigo</div>
+        <div className="eyebrow" style={{ marginBottom: 16 }}>004 · Por qué conmigo</div>
         <h2 className="serif" style={{
-          fontSize: isMobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(40px, 4.5vw, 68px)',
-          lineHeight: 1.02, marginBottom: isMobile ? 40 : 72, maxWidth: 900,
+          fontSize: isMobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(36px, 3.8vw, 56px)',
+          lineHeight: 1.05, marginBottom: isMobile ? 40 : 72, maxWidth: 900,
         }}>
-          No hay atajos. Pero hay alguien que ya{' '}
-          <em style={{ color: 'var(--accent)' }}>recorrió el camino.</em>
+          No hay atajos.<br />
+          <em style={{ color: 'var(--accent)' }}>Pero hay alguien que ya recorrió el camino.</em>
         </h2>
 
         <div>

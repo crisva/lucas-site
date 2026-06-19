@@ -20,9 +20,10 @@ export default function Numbers() {
           gap: isMobile ? 24 : 80, marginBottom: isMobile ? 40 : 64,
         }}>
           <div>
-            <div className="eyebrow" style={{ marginBottom: 16 }}>— 006 · Números</div>
+            <div className="eyebrow" style={{ marginBottom: 16 }}>006 · Números</div>
             <h2 className="serif" style={{ fontSize: isMobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(40px, 4.5vw, 68px)', lineHeight: 1 }}>
-              15 años.<br />En números.
+              15 años.<br /><em style={{ color: 'var(--accent)' }}>En números.</em>
+
             </h2>
           </div>
           <div style={{ alignSelf: 'end' }}>

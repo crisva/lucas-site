@@ -17,9 +17,9 @@ export default function CTABand() {
         gap: isMobile ? 28 : 40,
       }}>
         <div>
-          <div className="eyebrow" style={{ marginBottom: 12 }}>— Coaching</div>
+          <div className="eyebrow" style={{ marginBottom: 12 }}>Coaching</div>
           <h3 className="serif" style={{ fontSize: isMobile ? 'clamp(28px, 8vw, 44px)' : 44, lineHeight: 1.05, maxWidth: 700 }}>
-            Reservá tu mentoría o sesión introductoria de coaching, <em style={{ color: 'var(--accent)' }}>sin compromiso</em>.
+            Reservá tu mentoría o sesión introductoria de coaching, <em style={{ color: 'var(--accent)' }}>sin compromiso</em>
           </h3>
         </div>
         <div style={{ display: 'flex', gap: 10, flexShrink: 0, flexWrap: 'wrap' }}>

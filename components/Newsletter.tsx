@@ -38,9 +38,9 @@ export default function Newsletter() {
         alignItems: 'center',
       }}>
         <div>
-          <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 16 }}>— Newsletter</div>
+          <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 16 }}>Newsletter</div>
           <h2 className="serif" style={{ fontSize: isMobile ? 'clamp(36px, 10vw, 60px)' : 'clamp(40px, 4.5vw, 72px)', lineHeight: 1, color: 'var(--bg)' }}>
-            Recibe contenido<br /><em style={{ color: 'var(--accent)' }}>directo</em>.
+            Recibe contenido<br /><em style={{ color: 'var(--accent)' }}>directo</em>
           </h2>
         </div>
 

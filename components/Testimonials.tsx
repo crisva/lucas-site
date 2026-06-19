@@ -22,7 +22,7 @@ const items = [
   },
   {
     q: 'Lucas combina una mirada estratégica con consejos prácticos y accionables, siempre desde la escucha. Me ayudó a abordar problemas complejos con más claridad y foco. Lo recomiendo totalmente para crecer en producto y tomar mejores decisiones.',
-    n: 'Mateo Rodriguez Pintos', cargo: 'Product Manager', empresa: 'Ripio', flag: 'uy',
+    n: 'Mateo Rodriguez Pintos', cargo: 'Head of Product', empresa: 'Ripio', flag: 'uy',
     photo: '/testimonials/Mateo_Rodriguez.jpeg', tags: ['fintech', 'producto'],
   },
   {
@@ -32,7 +32,7 @@ const items = [
   },
   {
     q: 'La mentoría con Lucas me ayudó a repensar mi carrera profesional y entender mis fortalezas y puntos de mejora. Las sesiones me permitieron reflexionar sobre lo que es importante para mí. Lucas trajo los conceptos con claridad y en el momento adecuado. Gran profesional y gran persona.',
-    n: 'Federico Osovnikar', cargo: 'Product Owner', empresa: 'MercadoLibre', flag: 'ar',
+    n: 'Federico Osovnikar', cargo: 'Product Specialist', empresa: 'MercadoLibre', flag: 'ar',
     photo: '/testimonials/federico_osovnikar.jpeg', tags: ['coaching', 'carrera'],
   },
   {
@@ -130,10 +130,10 @@ export default function Testimonials() {
         }}>
           <div>
             <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: 16 }}>
-              — 005 · Testimonios
+              005 · Testimonios
             </div>
             <h2 className="serif" style={{ fontSize: isMobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(40px, 4.5vw, 68px)', lineHeight: 1, color: 'var(--bg)' }}>
-              Historias <em style={{ color: 'var(--accent)' }}>reales</em>.
+              Historias <em style={{ color: 'var(--accent)' }}>reales</em>
             </h2>
           </div>
 

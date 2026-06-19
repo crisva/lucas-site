@@ -4,10 +4,10 @@ import Image from 'next/image'
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 
 const bio = [
-  `Soy Lucas Patanó. Llevo más de 15 años en producto y growth en startups, fintechs y corporaciones de LATAM — con equipos que escalaron de cero a millones de usuarios.`,
-  `Fui CPO de Global66, donde construí el área de producto de 4 a más de 30 personas, lideré la primera billetera multimoneda de LATAM y los envíos internacionales instantáneos, productos que fueron claves para cerrar una Serie A de USD 12M. También fui parte del equipo que diseñó las bases de UalaBis en Ualá.`,
+  `Soy Lucas Patanó. Llevo más de 15 años en producto y growth en startups, fintechs y corporaciones de LATAM, con equipos que escalaron de cero a millones de usuarios.`,
+  `Fui CPO de Global66, donde construí el área de producto de 4 a más de 30 personas. Lideré la primera billetera multimoneda de LATAM y los envíos internacionales instantáneos, productos que fueron claves para cerrar una Serie A de USD 12M. También fui parte del equipo que diseñó las bases de UalaBis en Ualá.`,
   `Hoy soy Gerente de Innovación en BICE, donde construyo nuevos negocios digitales dentro de uno de los holdings financieros más grandes de Chile.`,
-  `Toda esa experiencia la pongo al servicio de CEOs, founders y líderes de producto que quieren resolver lo que más los traba — estrategia, equipos o decisiones de carrera. Mi especialización es fintech, pero trabajo con múltiples industrias. Lo que cambia no es solo lo que hacés — es cómo pensás y decidís de ahí en adelante.`,
+  `Toda esa experiencia la pongo al servicio de CEOs, founders y líderes de producto que quieren resolver lo que más los traba, estrategia, equipos o decisiones de carrera. Mi especialización es fintech, pero trabajo con múltiples industrias. Lo que cambia no es solo lo que hacés, es cómo pensás y decidís de ahí en adelante.`,
 ]
 
 const quickData = [
@@ -33,7 +33,7 @@ export default function About() {
 
           {/* Columna izquierda: foto + card de datos */}
           <div style={{ position: isMobile ? 'static' : 'sticky', top: 100 }}>
-            <div className="eyebrow" style={{ marginBottom: 20 }}>— 002 · Sobre mí</div>
+            <div className="eyebrow" style={{ marginBottom: 20 }}>002 · Sobre mí</div>
 
             {/* Foto */}
             <div style={{
@@ -74,8 +74,8 @@ export default function About() {
               fontSize: isMobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(40px, 4.5vw, 68px)',
               lineHeight: 1.02, marginBottom: 28, maxWidth: 720,
             }}>
-              No voy a darte un framework.{' '}
-              <em style={{ color: 'var(--accent)' }}>Voy a moverme contigo.</em>
+              No voy a darte un framework{' '}
+              <em style={{ color: 'var(--accent)' }}>Voy a moverme contigo</em>
             </h2>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 18, marginBottom: 36 }}>
