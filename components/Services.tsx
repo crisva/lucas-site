@@ -65,7 +65,7 @@ function ServiceCard({ idx, tag, t, d, meta, cta, ctaHref, ctaSecondary, ctaSeco
       {/* Footer */}
       <div style={{ marginTop: 28 }}>
         <div style={{ height: 1, background: 'var(--line)', marginBottom: 20 }} />
-        <div className="mono" style={{ fontSize: 10, color: 'var(--muted)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 16 }}>
+        <div className="mono" style={{ fontSize: 10, color: 'var(--muted)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: 16, whiteSpace: 'pre-line' }}>
           {meta}
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
@@ -123,7 +123,7 @@ const items = [
     tag: 'Corporativo',
     t: 'Speaker',
     d: 'Charlas de 45 min a 1 hora sobre producto, growth y liderazgo. Desde experiencia real, no teoría. Para eventos corporativos y conferencias.',
-    meta: 'CONSULTAR PRECIOS Y DISPONIBILIDAD',
+    meta: 'CONSULTAR PRECIOS\nY DISPONIBILIDAD',
     cta: 'CONSULTAR',
     ctaHref: 'mailto:lucaspatano@gmail.com',
   },

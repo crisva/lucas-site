@@ -4,31 +4,29 @@ import { useState } from 'react'
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 
 const podcasts = [
-  { id: 'DtsIF4ki2NM', titulo: 'Growth Rockstar Podcast',         sub: 'Con Dylan Rosemberg' },
-  { id: 'N3PbxzL4vJc', titulo: 'Hablemos de Producto',            sub: 'Episodio especial' },
-  { id: '3ifYJJswR98', titulo: 'Fintech Latam Podcast',            sub: 'Producto en fintech' },
-  { id: '7cluAaR4r64', titulo: 'Product Thinking',                 sub: 'Liderazgo en producto' },
-  { id: 'Iz2YQlABW4I', titulo: 'Innovación en la banca',              sub: 'Con Ricardo Araya Gautier' },
-  { id: '3i5W6JQsLF0', titulo: 'Hackeando Negocios',               sub: 'Growth y estrategia' },
-  { id: 'a39DuRNyPfg', titulo: 'Product Leaders LATAM',            sub: 'Panel de líderes' },
-  { id: 'c8V5vw-PJEU', titulo: 'Construyendo Producto',            sub: 'Decisiones sin datos' },
-  { id: 'SpeN9puPGl0', titulo: 'The Product Mindset',              sub: 'Mentalidad de producto' },
-  { id: 'WCzFNqk-sHI', titulo: 'SaaS Latam Show',                  sub: 'Equipos de alto impacto' },
-  { id: 'DMIIX7vNeDs', titulo: 'PM Sessions',                      sub: 'Carrera en producto' },
+  { id: 'DtsIF4ki2NM', titulo: 'Growth Rockstar Podcast',         sub: 'Producto vs Producto + Growth' },
+    { id: '3i5W6JQsLF0', titulo: 'Product Tank Santiago',               sub: 'PLG: Show don´t tell' },
+   { id: 'a39DuRNyPfg', titulo: 'Startup Grind Buenos Aires',            sub: 'Panel de growth y producto' },
+  { id: 'N3PbxzL4vJc', titulo: 'Hablemos de Producto',            sub: 'Innovar y construir cultura de producto' },
+    { id: 'Iz2YQlABW4I', titulo: 'Innovación y Transformación Digital',              sub: 'Innovación en la banca' },
+  { id: '3ifYJJswR98', titulo: 'Locos x el SaaS',            sub: 'Temporada 2 Episodio 9' },
+  { id: '7cluAaR4r64', titulo: 'Café Tech - Zoom Tecnológico',                 sub: 'Lanzamiento Global66' },
+    { id: 'DMIIX7vNeDs', titulo: 'FinteChile Podcast',                      sub: 'Qué hacemos en BICE Ventures' },
+  { id: 'c8V5vw-PJEU', titulo: 'Congreso América Digital',            sub: 'AI en la industria financiera' },
 ]
 
 const fotos = [
+  { src: '/apariciones/Visa_Payment_Day_Santiago_2026.jpg',              titulo: 'Visa Payment Day',                   sub: 'Santiago · 2026' },
+  { src: '/apariciones/Magister_Banca_Santiago_2026.jpeg',               titulo: 'Magister Banca y Mercados Financieros', sub: 'Santiago · 2026' },
+    { src: '/apariciones/Finerio_BaaS_Sessions_Lima_2025.jpeg',            titulo: 'Finerio BaaS Sessions',              sub: 'Lima · 2025'     },
+  { src: '/apariciones/Fintechelas_Santiago_2025.jpeg',                  titulo: 'Fintechelas',                        sub: 'Santiago · 2025' },
+    { src: '/apariciones/Cumbre_Estrategica_Iupana_Santiago_2025.jpeg',    titulo: 'Cumbre Estratégica Iupana',          sub: 'Santiago · 2025' },
+      { src: '/apariciones/CMS_Financial_Innovation_Santiago_2025.jpeg',     titulo: 'CMS Financial Innovation',           sub: 'Santiago · 2025' },
   { src: '/apariciones/CMS_Financial_Innovation_Santiago_2024.jpg',      titulo: 'CMS Financial Innovation',           sub: 'Santiago · 2024' },
-  { src: '/apariciones/CMS_Financial_Innovation_Santiago_2025.jpeg',     titulo: 'CMS Financial Innovation',           sub: 'Santiago · 2025' },
   { src: '/apariciones/Conectando_el_futuro_Santiago_2024.jpg',          titulo: 'Conectando el Futuro de las Finanzas', sub: 'Santiago · 2024' },
   { src: '/apariciones/Congreso_America_Digital_Santiago_2024.jpg',      titulo: 'Congreso América Digital',           sub: 'Santiago · 2024' },
-  { src: '/apariciones/Cumbre_Estrategica_Iupana_Santiago_2025.jpeg',    titulo: 'Cumbre Estratégica Iupana',          sub: 'Santiago · 2025' },
   { src: '/apariciones/Digital_Bank_Santiago_2024.jpg',                  titulo: 'Digital Bank',                       sub: 'Santiago · 2024' },
-  { src: '/apariciones/Finerio_BaaS_Sessions_Lima_2025.jpeg',            titulo: 'Finerio BaaS Sessions',              sub: 'Lima · 2025'     },
-  { src: '/apariciones/Fintechelas_Santiago_2025.jpeg',                  titulo: 'Fintechelas',                        sub: 'Santiago · 2025' },
-  { src: '/apariciones/Magister_Banca_Santiago_2026.jpeg',               titulo: 'Magister Banca y Mercados Financieros', sub: 'Santiago · 2026' },
   { src: '/apariciones/Unicef_Santiago_2024.jpeg',                       titulo: 'UNICEF',                             sub: 'Santiago · 2024' },
-  { src: '/apariciones/Visa_Payment_Day_Santiago_2026.jpg',              titulo: 'Visa Payment Day',                   sub: 'Santiago · 2026' },
 ]
 
 const papers = [
