@@ -18,10 +18,17 @@ const podcasts = [
 ]
 
 const fotos = [
-  { src: '/apariciones/evento-1.jpg', titulo: 'Product Hub LATAM Summit', sub: 'Buenos Aires · 2024', placeholder: true },
-  { src: '/apariciones/evento-2.jpg', titulo: 'Fintech Americas',           sub: 'Miami · 2024',        placeholder: true },
-  { src: '/apariciones/evento-3.jpg', titulo: 'Platzi Conf',                sub: 'Medellín · 2024',     placeholder: true },
-  { src: '/apariciones/evento-4.jpg', titulo: 'Growth Rockstar Live',       sub: 'Buenos Aires · 2023', placeholder: true },
+  { src: '/apariciones/CMS_Financial_Innovation_Santiago_2024.jpg',      titulo: 'CMS Financial Innovation',           sub: 'Santiago · 2024' },
+  { src: '/apariciones/CMS_Financial_Innovation_Santiago_2025.jpeg',     titulo: 'CMS Financial Innovation',           sub: 'Santiago · 2025' },
+  { src: '/apariciones/Conectando_el_futuro_Santiago_2024.jpg',          titulo: 'Conectando el Futuro de las Finanzas', sub: 'Santiago · 2024' },
+  { src: '/apariciones/Congreso_America_Digital_Santiago_2024.jpg',      titulo: 'Congreso América Digital',           sub: 'Santiago · 2024' },
+  { src: '/apariciones/Cumbre_Estrategica_Iupana_Santiago_2025.jpeg',    titulo: 'Cumbre Estratégica Iupana',          sub: 'Santiago · 2025' },
+  { src: '/apariciones/Digital_Bank_Santiago_2024.jpg',                  titulo: 'Digital Bank',                       sub: 'Santiago · 2024' },
+  { src: '/apariciones/Finerio_BaaS_Sessions_Lima_2025.jpeg',            titulo: 'Finerio BaaS Sessions',              sub: 'Lima · 2025'     },
+  { src: '/apariciones/Fintechelas_Santiago_2025.jpeg',                  titulo: 'Fintechelas',                        sub: 'Santiago · 2025' },
+  { src: '/apariciones/Magister_Banca_Santiago_2026.jpeg',               titulo: 'Magister Banca y Mercados Financieros', sub: 'Santiago · 2026' },
+  { src: '/apariciones/Unicef_Santiago_2024.jpeg',                       titulo: 'UNICEF',                             sub: 'Santiago · 2024' },
+  { src: '/apariciones/Visa_Payment_Day_Santiago_2026.jpg',              titulo: 'Visa Payment Day',                   sub: 'Santiago · 2026' },
 ]
 
 const papers = [
@@ -31,6 +38,12 @@ const papers = [
 
 function ModalApariciones({ onClose }: { onClose: () => void }) {
   const { isMobile } = useBreakpoint()
+  const [lightbox, setLightbox] = useState<number | null>(null)
+
+  const openLightbox = (idx: number) => setLightbox(idx)
+  const closeLightbox = () => setLightbox(null)
+  const prevPhoto = () => setLightbox(i => i !== null ? (i === 0 ? fotos.length - 1 : i - 1) : null)
+  const nextPhoto = () => setLightbox(i => i !== null ? (i === fotos.length - 1 ? 0 : i + 1) : null)
 
   const SectionLabel = ({ label }: { label: string }) => (
     <div className="mono" style={{ fontSize: 10, color: 'var(--muted)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: 16 }}>
@@ -39,6 +52,7 @@ function ModalApariciones({ onClose }: { onClose: () => void }) {
   )
 
   return (
+    <>
     <div
       onClick={onClose}
       style={{ position: 'fixed', inset: 0, zIndex: 999, background: 'rgba(0,0,0,0.85)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: isMobile ? 16 : 32, backdropFilter: 'blur(8px)' }}
@@ -95,17 +109,17 @@ function ModalApariciones({ onClose }: { onClose: () => void }) {
           {/* FOTOS */}
           <div>
             <SectionLabel label="Eventos como speaker" />
-            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4, 1fr)', gap: 14 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(3, 1fr)', gap: 14 }}>
               {fotos.map((f, i) => (
-                <div key={i} style={{ borderRadius: 10, overflow: 'hidden', border: '1px solid var(--line)' }}>
+                <div
+                  key={i}
+                  onClick={() => openLightbox(i)}
+                  style={{ borderRadius: 10, overflow: 'hidden', border: '1px solid var(--line)', cursor: 'pointer', transition: 'border-color 0.2s' }}
+                  onMouseEnter={e => (e.currentTarget.style.borderColor = 'var(--accent)')}
+                  onMouseLeave={e => (e.currentTarget.style.borderColor = 'var(--line)')}
+                >
                   <div style={{ aspectRatio: '4/3', background: 'var(--bg-2)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    {f.placeholder ? (
-                      <div style={{ textAlign: 'center', padding: 12 }}>
-                        <div style={{ fontSize: 20, marginBottom: 6, opacity: 0.3 }}>📷</div>
-                      </div>
-                    ) : (
-                      <img src={f.src} alt={f.titulo} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                    )}
+                    <img src={f.src} alt={f.titulo} style={{ width: '100%', height: '100%', objectFit: 'cover', pointerEvents: 'none' }} />
                   </div>
                   <div style={{ padding: '10px 12px 12px' }}>
                     <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--ink)', marginBottom: 2, lineHeight: 1.3 }}>{f.titulo}</div>
@@ -139,6 +153,44 @@ function ModalApariciones({ onClose }: { onClose: () => void }) {
         </div>
       </div>
     </div>
+
+    {/* Lightbox */}
+    {lightbox !== null && (
+      <div
+        onClick={closeLightbox}
+        style={{ position: 'fixed', inset: 0, zIndex: 1100, background: 'rgba(0,0,0,0.95)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16 }}
+      >
+        <div onClick={e => e.stopPropagation()} style={{ position: 'relative', width: '100%', maxWidth: 900, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16 }}>
+          {/* Imagen */}
+          <img
+            src={fotos[lightbox].src}
+            alt={fotos[lightbox].titulo}
+            style={{ width: '100%', maxHeight: '70vh', objectFit: 'contain', borderRadius: 12 }}
+          />
+          {/* Info */}
+          <div style={{ textAlign: 'center' }}>
+            <div style={{ fontSize: isMobile ? 16 : 20, fontWeight: 600, color: 'white', marginBottom: 4 }}>{fotos[lightbox].titulo}</div>
+            <div className="mono" style={{ fontSize: 11, color: 'rgba(255,255,255,0.5)', letterSpacing: '0.08em' }}>{fotos[lightbox].sub}</div>
+          </div>
+          {/* Contador */}
+          <div className="mono" style={{ fontSize: 11, color: 'rgba(255,255,255,0.35)' }}>
+            {lightbox + 1} / {fotos.length}
+          </div>
+          {/* Navegación */}
+          <button onClick={e => { e.stopPropagation(); prevPhoto() }} style={{ position: 'absolute', left: isMobile ? -8 : -56, top: '35%', width: 44, height: 44, borderRadius: 999, border: '1px solid rgba(255,255,255,0.2)', background: 'rgba(0,0,0,0.6)', color: 'white', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L4 7L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          </button>
+          <button onClick={e => { e.stopPropagation(); nextPhoto() }} style={{ position: 'absolute', right: isMobile ? -8 : -56, top: '35%', width: 44, height: 44, borderRadius: 999, border: '1px solid rgba(255,255,255,0.2)', background: 'rgba(0,0,0,0.6)', color: 'white', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 2L10 7L5 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          </button>
+          {/* Cerrar */}
+          <button onClick={closeLightbox} style={{ position: 'absolute', top: -16, right: -16, width: 36, height: 36, borderRadius: 999, border: '1px solid rgba(255,255,255,0.2)', background: 'rgba(0,0,0,0.6)', color: 'white', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M2 2L12 12M12 2L2 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
+          </button>
+        </div>
+      </div>
+    )}
+    </>
   )
 }
 
