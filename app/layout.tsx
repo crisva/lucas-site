@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 
-const BASE_URL = 'https://lucaspatano.com'
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://lucaspatano.com'
 const DESCRIPTION = 'Más de 15 años en producto y growth en startups, fintechs y corporaciones de LATAM. Mentorías 1:1 y coaching para CEOs, founders y líderes de producto.'
 
 export const metadata: Metadata = {
