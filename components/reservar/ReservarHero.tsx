@@ -10,7 +10,7 @@ const MESES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto'
 type Servicio = 'introductoria' | 'mentoria'
 
 const servicios = [
-  { id: 'introductoria' as Servicio, label: 'Sesión introductoria', sub: '30 min · Gratuita',  namespace: 'sesion-introductoria', calLink: 'lucaspatano/sesion-introductoria?theme=dark&bg=14100C&text=F3EEE4' },
+  { id: 'introductoria' as Servicio, label: 'Sesión introductoria', sub: '15 min · Gratuita',  namespace: 'sesion-introductoria', calLink: 'lucaspatano/sesion-introductoria?theme=dark&bg=14100C&text=F3EEE4' },
   { id: 'mentoria'      as Servicio, label: 'Mentoría 1:1',         sub: '60 min · USD 180',   namespace: 'mentoria1-1',           calLink: 'lucaspatano/mentoria1-1?theme=dark&bg=14100C&text=F3EEE4'           },
 ]
 
@@ -66,10 +66,10 @@ export default function ReservarHero() {
 
           {/* ── Izquierda ── */}
           <div>
-            <div className="eyebrow" style={{ marginBottom: 16 }}>— Reservar sesión</div>
+            <div className="eyebrow" style={{ marginBottom: 16 }}>Reservar sesión</div>
             <h1 className="serif" style={{ fontSize: isMobile ? 'clamp(36px, 10vw, 52px)' : 'clamp(40px, 4vw, 60px)', lineHeight: 1.02, marginBottom: 20 }}>
               El primer paso es<br />
-              <em style={{ color: 'var(--accent)' }}>agendar.</em>
+              <em style={{ color: 'var(--accent)' }}>agendar</em>
             </h1>
             <p style={{ fontSize: isMobile ? 15 : 17, color: 'var(--ink-2)', lineHeight: 1.65, marginBottom: 32, maxWidth: 480 }}>
               Elegí el tipo de sesión y seleccioná el horario que mejor te quede.

@@ -21,7 +21,7 @@ export default function ReservarQueEsperar() {
           alignItems: 'center',
         }}>
           <div>
-            <div className="eyebrow" style={{ marginBottom: 16 }}>— Coaching & Mentorías</div>
+            <div className="eyebrow" style={{ marginBottom: 16 }}>Coaching & Mentorías</div>
             <h2 className="serif" style={{ fontSize: isMobile ? 'clamp(32px, 8vw, 48px)' : 'clamp(36px, 3.5vw, 52px)', lineHeight: 1.05 }}>
               ¿Qué te llevás de<br /><em style={{ color: 'var(--accent)' }}>cada sesión?</em>
             </h2>

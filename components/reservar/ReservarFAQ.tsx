@@ -44,9 +44,9 @@ export default function ReservarFAQ() {
           alignItems: 'start',
         }}>
           <div style={{ position: isMobile ? 'static' : 'sticky', top: 100 }}>
-            <div className="eyebrow" style={{ marginBottom: 16 }}>— Preguntas frecuentes</div>
+            <div className="eyebrow" style={{ marginBottom: 16 }}>Preguntas frecuentes</div>
             <h2 className="serif" style={{ fontSize: isMobile ? 32 : 44, lineHeight: 1.05, marginBottom: 16 }}>
-              Antes de<br /><em style={{ color: 'var(--accent)' }}>reservar.</em>
+              Antes de<br /><em style={{ color: 'var(--accent)' }}>reservar</em>
             </h2>
             <p style={{ fontSize: 15, color: 'var(--ink-2)', lineHeight: 1.65 }}>
               Si no encontrás la respuesta que buscás, escribime directo.
