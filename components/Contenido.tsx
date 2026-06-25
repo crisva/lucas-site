@@ -16,6 +16,7 @@ const podcasts = [
 ]
 
 const fotos = [
+  { src: '/apariciones/Sesion_CLevel_Raven_Santiago_2026.png', titulo: 'Sesión C-Level Raven', sub: 'Santiago · 2026' },
   { src: '/apariciones/Visa_Payment_Day_Santiago_2026.jpg',              titulo: 'Visa Payment Day',                   sub: 'Santiago · 2026' },
   { src: '/apariciones/Magister_Banca_Santiago_2026.jpeg',               titulo: 'Magister Banca y Mercados Financieros', sub: 'Santiago · 2026' },
     { src: '/apariciones/Finerio_BaaS_Sessions_Lima_2025.jpeg',            titulo: 'Finerio BaaS Sessions',              sub: 'Lima · 2025'     },

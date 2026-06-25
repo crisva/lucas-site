@@ -45,8 +45,8 @@ export default function About() {
               margin: isMobile ? '0 auto 24px' : '0 0 24px',
             }}>
               <Image
-                src="/lucas-sobre-mi.jpg"
-                alt="Lucas Patanó dando una charla"
+                src="/lucas-sobre-mi.png"
+                alt="Lucas Patanó — Product Coach"
                 fill
                 style={{ objectFit: 'cover', objectPosition: 'center center' }}
               />
