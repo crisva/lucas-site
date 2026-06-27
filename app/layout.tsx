@@ -7,7 +7,7 @@ const DESCRIPTION = 'Más de 15 años en producto y growth en startups, fintechs
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'Lucas Patanó — Product Coach',
+    default: 'Lucas Patanó - Product Coach',
     template: '%s — Lucas Patanó',
   },
   description: DESCRIPTION,
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'es_AR',
     url: BASE_URL,
-    siteName: 'Lucas Patanó — Product Coach',
+    siteName: 'Lucas Patanó - Product Coach',
     title: 'Lucas Patanó — Product Coach',
     description: DESCRIPTION,
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Lucas Patanó — Product Coach' }],
