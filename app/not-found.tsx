@@ -100,7 +100,7 @@ export default function NotFound() {
             color: 'var(--muted)',
             marginBottom: 40,
           }}>
-            Pero no te preocupes — hay mejores lugares adonde ir.
+            Pero no te preocupes, puedes ir:
           </p>
 
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
