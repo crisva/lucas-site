@@ -89,18 +89,33 @@ export default function Footer() {
         </div>
 
         {/* Legal */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', alignItems: 'center', paddingTop: 20, borderTop: '1px solid var(--line)', gap: 10 }}>
-          <div className="mono" style={{ fontSize: 11, color: 'var(--muted)' }}>© 2026 Lucas Patanó. Todos los derechos reservados.</div>
-          <div style={{ display: 'flex', gap: 16 }} className="mono">
-            {['Privacidad', 'Términos', 'Cookies'].map(item => (
-              <a key={item} style={{ fontSize: 11, color: 'var(--muted)' }}>{item}</a>
-            ))}
+        {isMobile ? (
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12, paddingTop: 20, borderTop: '1px solid var(--line)', textAlign: 'center' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }} className="mono">
+              {['Privacidad', 'Términos', 'Cookies'].map(item => (
+                <a key={item} style={{ fontSize: 11, color: 'var(--muted)' }}>{item}</a>
+              ))}
+            </div>
+            <div className="mono" style={{ fontSize: 11, color: 'var(--muted)' }}>© 2026 Lucas Patanó. Todos los derechos reservados.</div>
+            <div className="mono" style={{ fontSize: 11, color: 'var(--muted)' }}>
+              Designed and developed with love by{' '}
+              <a href="https://crisva.com/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--muted)', borderBottom: '1px solid var(--muted)', paddingBottom: 1 }}>Crisva</a>
+            </div>
           </div>
-          <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', textAlign: 'right' }}>
-            Designed and developed with love by{' '}
-            <a href="https://crisva.com/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--muted)', borderBottom: '1px solid var(--muted)', paddingBottom: 1 }}>Crisva</a>
+        ) : (
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', alignItems: 'center', paddingTop: 20, borderTop: '1px solid var(--line)', gap: 10 }}>
+            <div className="mono" style={{ fontSize: 11, color: 'var(--muted)' }}>© 2026 Lucas Patanó. Todos los derechos reservados.</div>
+            <div style={{ display: 'flex', gap: 16 }} className="mono">
+              {['Privacidad', 'Términos', 'Cookies'].map(item => (
+                <a key={item} style={{ fontSize: 11, color: 'var(--muted)' }}>{item}</a>
+              ))}
+            </div>
+            <div className="mono" style={{ fontSize: 11, color: 'var(--muted)', textAlign: 'right' }}>
+              Designed and developed with love by{' '}
+              <a href="https://crisva.com/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--muted)', borderBottom: '1px solid var(--muted)', paddingBottom: 1 }}>Crisva</a>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </footer>
   )
