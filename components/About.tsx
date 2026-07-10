@@ -32,7 +32,7 @@ export default function About() {
         }}>
 
           {/* Columna izquierda: foto + card de datos */}
-          <div style={{ position: isMobile ? 'static' : 'sticky', top: 100 }}>
+          <div style={{ position: isMobile || isTablet ? 'static' : 'sticky', top: 100 }}>
             <div className="eyebrow" style={{ marginBottom: 20 }}>002 · Sobre mí</div>
 
             {/* Foto */}
