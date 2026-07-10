@@ -74,7 +74,7 @@ export default function About() {
               fontSize: isMobile ? 'clamp(36px, 10vw, 56px)' : 'clamp(40px, 4.5vw, 68px)',
               lineHeight: 1.02, marginBottom: 28, maxWidth: 720,
             }}>
-              No voy a darte un framework{' '}
+              No voy a darte un framework<br />
               <em style={{ color: 'var(--accent)' }}>Voy a moverme contigo</em>
             </h2>
 
