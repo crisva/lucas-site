@@ -16,6 +16,8 @@ const podcasts = [
 ]
 
 const fotos = [
+    { src: '/apariciones/pendo26.jpeg', titulo: 'Evento Pendo', sub: 'Santiago · 2026' },
+        { src: '/apariciones/truora26.jpeg', titulo: 'Evento Truora', sub: 'Santiago · 2026' },
   { src: '/apariciones/Sesion_CLevel_Raven_Santiago_2026.png', titulo: 'Sesión C-Level Raven', sub: 'Santiago · 2026' },
   { src: '/apariciones/Visa_Payment_Day_Santiago_2026.jpg',              titulo: 'Visa Payment Day',                   sub: 'Santiago · 2026' },
   { src: '/apariciones/Magister_Banca_Santiago_2026.jpeg',               titulo: 'Magister Banca y Mercados Financieros', sub: 'Santiago · 2026' },
@@ -207,7 +209,7 @@ const cards = [
     t: 'Lo que pienso, por escrito.',
     d: 'Reflexiones, análisis y aprendizajes sobre producto, liderazgo y growth. Sin periodicidad fija, solo cuando hay algo que vale la pena decir.',
     cta: 'Leer los artículos',
-    href: 'https://www.linkedin.com/in/lucaspatano/recent-activity/articles/',
+    href: 'https://www.linkedin.com/newsletters/el-producto-7484320616725024769',
     external: true,
   },
   {
