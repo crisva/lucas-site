@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { useBreakpoint } from '@/hooks/useBreakpoint'
 
 const podcasts = [
+      { id: 'bgtNtow8KOg', titulo: 'Growth Nexus 2026 CDMX',         sub: 'La primera cita que casi perdimos' },
+    { id: 'URAAZdJBPNU', titulo: 'Sesiones C-Level Raven',         sub: 'De iniciativa a Negocio' },
   { id: 'DtsIF4ki2NM', titulo: 'Growth Rockstar Podcast',         sub: 'Producto vs Producto + Growth' },
     { id: '3i5W6JQsLF0', titulo: 'Product Tank Santiago',               sub: 'PLG: Show don´t tell' },
    { id: 'a39DuRNyPfg', titulo: 'Startup Grind Buenos Aires',            sub: 'Panel de growth y producto' },
@@ -16,6 +18,9 @@ const podcasts = [
 ]
 
 const fotos = [
+    { src: '/apariciones/GrowthNexus–CiudaddeMéxico2026.png', titulo: 'Growth Nexus', sub: 'Ciudad de México · 2026' },
+        { src: '/apariciones/GrowthinMind–Santiago2026.jpg', titulo: 'Growth in Mind', sub: 'Santiago · 2026' },
+  { src: '/apariciones/CMSFinancial Innovation–Santiago2026.jpg', titulo: 'CMS Financial Innovation', sub: 'Santiago · 2026' },
     { src: '/apariciones/pendo26.jpeg', titulo: 'Evento Pendo', sub: 'Santiago · 2026' },
         { src: '/apariciones/truora26.jpeg', titulo: 'Evento Truora', sub: 'Santiago · 2026' },
   { src: '/apariciones/Sesion_CLevel_Raven_Santiago_2026.png', titulo: 'Sesión C-Level Raven', sub: 'Santiago · 2026' },
